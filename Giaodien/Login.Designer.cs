@@ -41,8 +41,6 @@
             this.txt_user = new System.Windows.Forms.TextBox();
             this.txt_password = new System.Windows.Forms.TextBox();
             this.btn_login = new System.Windows.Forms.Button();
-            this.lb_register = new System.Windows.Forms.Label();
-            this.link_register = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -187,34 +185,12 @@
             this.btn_login.UseVisualStyleBackColor = false;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
-            // lb_register
-            // 
-            this.lb_register.AutoSize = true;
-            this.lb_register.Location = new System.Drawing.Point(599, 434);
-            this.lb_register.Name = "lb_register";
-            this.lb_register.Size = new System.Drawing.Size(208, 25);
-            this.lb_register.TabIndex = 43;
-            this.lb_register.Text = "Don\'t have account?";
-            // 
-            // link_register
-            // 
-            this.link_register.AutoSize = true;
-            this.link_register.Location = new System.Drawing.Point(813, 434);
-            this.link_register.Name = "link_register";
-            this.link_register.Size = new System.Drawing.Size(118, 25);
-            this.link_register.TabIndex = 44;
-            this.link_register.TabStop = true;
-            this.link_register.Text = "Create one";
-            this.link_register.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_register_LinkClicked);
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1198, 702);
-            this.Controls.Add(this.link_register);
-            this.Controls.Add(this.lb_register);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.txt_user);
@@ -247,7 +223,5 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_login;
-        private System.Windows.Forms.Label lb_register;
-        private System.Windows.Forms.LinkLabel link_register;
     }
 }

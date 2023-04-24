@@ -15,10 +15,10 @@ namespace CarRental
             if (conn == null)
             {
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder["Data Source"] = "MAYCHU-A104\\A104";
+                builder["Data Source"] = "DESKTOP-CBHB9E2";
                 builder["integrated Security"] = true;
-                builder["Initial Catalog"] = "Lab6";
-                builder.UserID = "MAYCHU-A104\\A104";
+                builder["Initial Catalog"] = "CarRental";
+                builder.UserID = "DESKTOP-CBHB9E2\\Nguyen";
                 conn = new SqlConnection(builder.ConnectionString);
                 conn.Open();
                 return conn;

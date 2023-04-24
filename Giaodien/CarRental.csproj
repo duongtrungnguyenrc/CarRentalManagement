@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authentication.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="DisplayCars.cs">
       <SubType>Form</SubType>
@@ -85,18 +86,13 @@
     <Compile Include="ManagerStaffs.Designer.cs">
       <DependentUpon>ManagerStaffs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Register.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Register.Designer.cs">
-      <DependentUpon>Register.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rentals.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Rentals.Designer.cs">
       <DependentUpon>Rentals.cs</DependentUpon>
     </Compile>
+    <Compile Include="Respond.cs" />
     <Compile Include="Return.cs">
       <SubType>Form</SubType>
     </Compile>

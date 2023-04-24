@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Login;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,15 +18,19 @@ namespace CarRental
             InitializeComponent();
         }
 
-        private void link_register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Register form = new Register();
-            form.ShowDialog();
-        }
-
         private void btn_login_Click(object sender, EventArgs e)
         {
-
+            Authentication authOBJ = new Authentication(txt_user.Text, txt_password.Text);
+            Respond respond = authOBJ.LoginAuth(Connection.GetConnection());
+            if (respond.getStatus()) {
+              //  MessageBox.Show((string)respond.getData());
+                Main form = new Main();
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show((string)respond.getDescription());
+            }
         }
     }
 }

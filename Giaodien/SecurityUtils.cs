@@ -6,7 +6,7 @@ namespace Login
 {
     internal class SecurityUtils
     {
-        static string salt = "AQWSDRW";
+        static string salt = "CARRENTAL";
         public static string SaltedHash(string password)
         {
             return Hash(Hash(password) + salt);
