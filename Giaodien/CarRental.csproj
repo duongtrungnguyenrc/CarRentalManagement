@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F5C736A3-AEF6-4BA8-830B-7915CC88FD7B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CarRental</RootNamespace>
+    <AssemblyName>CarRental</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authentication.cs" />
+    <Compile Include="Connection.cs" />
+    <Compile Include="DisplayCars.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayCars.Designer.cs">
+      <DependentUpon>DisplayCars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerCars.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerCars.Designer.cs">
+      <DependentUpon>ManagerCars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerUsers.Designer.cs">
+      <DependentUpon>ManagerUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ManagerStaffs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerStaffs.Designer.cs">
+      <DependentUpon>ManagerStaffs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rentals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rentals.Designer.cs">
+      <DependentUpon>Rentals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Respond.cs" />
+    <Compile Include="Return.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Return.Designer.cs">
+      <DependentUpon>Return.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityUtils.cs" />
+    <Compile Include="UserModel.cs" />
+    <EmbeddedResource Include="DisplayCars.resx">
+      <DependentUpon>DisplayCars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerCars.resx">
+      <DependentUpon>ManagerCars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerStaffs.resx">
+      <DependentUpon>ManagerStaffs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerUsers.resx">
+      <DependentUpon>ManagerUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Rentals.resx">
+      <DependentUpon>Rentals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Return.resx">
+      <DependentUpon>Return.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
