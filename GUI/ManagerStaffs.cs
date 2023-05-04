@@ -20,55 +20,15 @@ namespace GUI
             InitializeComponent();
             DataModel model = new DataModel();
             List<SystemUser> users = model.GetStaffs();
-            data_staffs.Columns.Add("id", "ID");
-            data_staffs.Columns.Add("name", "Name");
-            data_staffs.Columns.Add("birth", "Birth");
-            data_staffs.Columns.Add("gender", "Gender");
-            data_staffs.Columns.Add("phone", "Phone");
-            data_staffs.Columns.Add("address", "Address");
-            data_staffs.Columns.Add("identifier", "Identifier");
-            data_staffs.Columns.Add("shift", "Shift");
-            data_staffs.Columns.Add("salary", "Salary");
             foreach (SystemUser user in users)
             {
-                data_staffs.Rows.Add(user.id, user.name, user.birth, user.gender, user.phone, user.address, user.identifier, user.shift, user.coefficientsSalary);
+                data_staffs.Rows.Add(user.id, user.name, user.birth, user.gender, user.phone, user.address, user.shift, user.identifier, user.coefficientsSalary);
             }
         }
 
         private void ManagerStaffs_Load(object sender, EventArgs e)
         {
            
-        }
-
-        private void btn_add_Click(object sender, EventArgs e)
-        {
-            foreach (Control control in this.Controls)
-            {
-                if (control is TextBox textBox)
-                {
-                    if (string.IsNullOrEmpty(textBox.Text))
-                    {
-                        MessageBox.Show($"Can't add new Staff with null or empty {textBox.Name}", "Error!");
-                        return;
-                        
-                    }
-                }
-                else if (control is ComboBox comboBox)
-                {
-                    if (string.IsNullOrEmpty(comboBox.Text))
-                    {
-                        MessageBox.Show($"Can't add new Staff with null or empty {comboBox.Name}", "Error!");
-                        return;
-                    }
-                }
-            }
-
-            SystemUser newStaff = new SystemUser("", txt_name.Text, txt_birth.Value, cb_gender.Text, 
-                txt_phone.Text, txt_address.Text, txt_identity.Text, txt_shift.Text, txt_coefficients_salary.Text);
-            DataModel  model = new DataModel();
-            Respond res = model.InsertStaff(newStaff);
-            data_staffs.Refresh();
-            MessageBox.Show($"Default granted account: {txt_identity.Text}\nPassword: {txt_phone.Text}", res.getDescription());
         }
 
         private void data_staffs_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -113,6 +73,47 @@ namespace GUI
             Respond res = model.UpdateStaff(editStaff);
             data_staffs.Refresh();
             MessageBox.Show($"Default granted account: {txt_identity.Text}\nPassword: {txt_phone.Text}", res.getDescription());
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_add_Click_1(object sender, EventArgs e)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox textBox)
+                {
+                    if (string.IsNullOrEmpty(textBox.Text))
+                    {
+                        MessageBox.Show($"Can't add new Staff with null or empty {textBox.Name}", "Error!");
+                        return;
+
+                    }
+                }
+                else if (control is ComboBox comboBox)
+                {
+                    if (string.IsNullOrEmpty(comboBox.Text))
+                    {
+                        MessageBox.Show($"Can't add new Staff with null or empty {comboBox.Name}", "Error!");
+                        return;
+                    }
+                }
+            }
+
+            SystemUser newStaff = new SystemUser("", txt_name.Text, txt_birth.Value, cb_gender.Text,
+                txt_phone.Text, txt_address.Text, txt_identity.Text, txt_shift.Text, txt_coefficients_salary.Text);
+            DataModel model = new DataModel();
+            Respond res = model.InsertStaff(newStaff);
+            data_staffs.Refresh();
+            MessageBox.Show($"Default granted account: {txt_identity.Text}\nPassword: {txt_phone.Text}", res.getDescription());
+        }
+
+        private void txt_address_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

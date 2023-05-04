@@ -25,11 +25,13 @@ namespace BLL
         public Respond LoginAuth()
         {
             SecurityUtils obj = new SecurityUtils();
-            string query = "SELECT password, role FROM SystemAccount WHERE user_name = @userName";
+            string query = "SELECT SystemAccount.password, SystemAccount.role, SystemUser.name " +
+                "FROM SystemAccount JOIN SystemUser ON SystemAccount.user_id = SystemUser.user_id " +
+                "WHERE SystemAccount.user_name =@user_name";
 
             using (SqlCommand command = new SqlCommand(query, this.connection))
             {
-                command.Parameters.AddWithValue("@userName", username);
+                command.Parameters.AddWithValue("@user_name", username);
 
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
@@ -37,10 +39,13 @@ namespace BLL
                     reader.Read();
                     string password = reader.GetString(0);
                     string role = reader.GetString(1);
-
+                    string name = reader.GetString(2);
+                    List<string> res = new List<string>();
+                    res.Add(role);
+                    res.Add(name);
                     if (password == this.password) // temporary
                     {
-                        return new Respond(true, role, "Login Successfully!");
+                        return new Respond(true, res, "Login Successfully!");
                     }
                 }
                 reader.Close();

@@ -12,12 +12,14 @@ namespace GUI
 {
     public partial class Main : Form
     {   
-        public Main(string role)
+        public Main(string role, string name)
         {
             InitializeComponent();
             if(!String.Equals(role, "admin", StringComparison.OrdinalIgnoreCase)) { 
                 nav_staffs.Enabled = false;
             }
+            lb_name.Text = "Hello: " + name;
+            lb_role.Text = "Role: " + role;
         }
 
         private void nav_cars_Click(object sender, EventArgs e)
@@ -34,6 +36,22 @@ namespace GUI
         }
 
         private void nav_return_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nav_rentals_Click(object sender, EventArgs e)
+        {
+            DisplayCars form = new DisplayCars();
+            form.ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

@@ -24,12 +24,25 @@ namespace GUI
             Authentication authOBJ = new Authentication(txt_user.Text, txt_password.Text);
             Respond respond = authOBJ.LoginAuth();
             if (respond.getStatus()) {
-                Main form = new Main((string)respond.getData());
+                List<string> data = (List<string>) respond.getData();
+                Main form = new Main(data[0], data[1]);
                 form.ShowDialog();
             }
             else
             {
                 MessageBox.Show((string)respond.getDescription());
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(show_password.Checked)
+            {
+                txt_password.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txt_password.UseSystemPasswordChar = true;
             }
         }
     }

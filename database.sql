@@ -78,19 +78,20 @@ CREATE TABLE PreContract
 
 CREATE TABLE Car
 (
+  car_id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+  car_img varchar(255) NOT NULL,
   car_name INT NOT NULL,
   rent_by_time INT NOT NULL,
   rent_by_date INT NOT NULL,
-  car_id INT NOT NULL,
   car_year INT NOT NULL,
   car_price INT NOT NULL,
   number_of_km INT NOT NULL,
-  car_color INT NOT NULL,
   deposit_price INT NOT NULL,
-  general_id INT NOT NULL,
-  PRIMARY KEY (car_id),
-  FOREIGN KEY (general_id) REFERENCES Car_general(general_id)
+  type_id UNIQUEIDENTIFIER NOT NULL,
+  FOREIGN KEY (type_id) REFERENCES CarType(type_id)
 );
+
+drop table Car
 
 CREATE TABLE contract_detail
 (
