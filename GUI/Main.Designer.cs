@@ -34,9 +34,9 @@
             this.nav_cars = new System.Windows.Forms.Button();
             this.nav_staffs = new System.Windows.Forms.Button();
             this.nav_customer = new System.Windows.Forms.Button();
-            this.nav_rentals = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.nav_return = new System.Windows.Forms.Button();
+            this.nav_ManageContracts = new System.Windows.Forms.Button();
+            this.btn_log_out = new System.Windows.Forms.Button();
+            this.nav_setting = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -69,11 +69,11 @@
             this.label1.Size = new System.Drawing.Size(496, 63);
             this.label1.TabIndex = 2;
             this.label1.Text = "Car Rental System";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // nav_cars
             // 
             this.nav_cars.BackColor = System.Drawing.Color.SteelBlue;
+            this.nav_cars.Cursor = System.Windows.Forms.Cursors.Hand;
             this.nav_cars.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.nav_cars.ForeColor = System.Drawing.SystemColors.Window;
             this.nav_cars.Location = new System.Drawing.Point(57, 70);
@@ -88,6 +88,7 @@
             // nav_staffs
             // 
             this.nav_staffs.BackColor = System.Drawing.Color.SteelBlue;
+            this.nav_staffs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.nav_staffs.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.nav_staffs.ForeColor = System.Drawing.SystemColors.Window;
             this.nav_staffs.Location = new System.Drawing.Point(57, 221);
@@ -102,6 +103,7 @@
             // nav_customer
             // 
             this.nav_customer.BackColor = System.Drawing.Color.SteelBlue;
+            this.nav_customer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.nav_customer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.nav_customer.ForeColor = System.Drawing.SystemColors.Window;
             this.nav_customer.Location = new System.Drawing.Point(57, 372);
@@ -112,53 +114,57 @@
             this.nav_customer.Text = "Customers";
             this.nav_customer.UseVisualStyleBackColor = false;
             // 
-            // nav_rentals
+            // nav_ManageContracts
             // 
-            this.nav_rentals.BackColor = System.Drawing.Color.SteelBlue;
-            this.nav_rentals.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.nav_rentals.ForeColor = System.Drawing.SystemColors.Window;
-            this.nav_rentals.Location = new System.Drawing.Point(57, 523);
-            this.nav_rentals.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.nav_rentals.Name = "nav_rentals";
-            this.nav_rentals.Size = new System.Drawing.Size(328, 135);
-            this.nav_rentals.TabIndex = 9;
-            this.nav_rentals.Text = "Rentals";
-            this.nav_rentals.UseVisualStyleBackColor = false;
-            this.nav_rentals.Click += new System.EventHandler(this.nav_rentals_Click);
+            this.nav_ManageContracts.BackColor = System.Drawing.Color.SteelBlue;
+            this.nav_ManageContracts.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.nav_ManageContracts.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.nav_ManageContracts.ForeColor = System.Drawing.SystemColors.Window;
+            this.nav_ManageContracts.Location = new System.Drawing.Point(57, 523);
+            this.nav_ManageContracts.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.nav_ManageContracts.Name = "nav_ManageContracts";
+            this.nav_ManageContracts.Size = new System.Drawing.Size(328, 135);
+            this.nav_ManageContracts.TabIndex = 9;
+            this.nav_ManageContracts.Text = "Contracts";
+            this.nav_ManageContracts.UseVisualStyleBackColor = false;
+            this.nav_ManageContracts.Click += new System.EventHandler(this.nav_ManageContracts_Click);
             // 
-            // button5
+            // btn_log_out
             // 
-            this.button5.BackColor = System.Drawing.Color.IndianRed;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button5.ForeColor = System.Drawing.SystemColors.Window;
-            this.button5.Location = new System.Drawing.Point(1378, 981);
-            this.button5.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(225, 88);
-            this.button5.TabIndex = 43;
-            this.button5.Text = "Logout";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btn_log_out.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_log_out.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_log_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_log_out.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_log_out.Location = new System.Drawing.Point(1378, 981);
+            this.btn_log_out.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.btn_log_out.Name = "btn_log_out";
+            this.btn_log_out.Size = new System.Drawing.Size(225, 88);
+            this.btn_log_out.TabIndex = 43;
+            this.btn_log_out.Text = "Logout";
+            this.btn_log_out.UseVisualStyleBackColor = false;
+            this.btn_log_out.Click += new System.EventHandler(this.btn_log_out_Click);
             // 
-            // nav_return
+            // nav_setting
             // 
-            this.nav_return.BackColor = System.Drawing.Color.SteelBlue;
-            this.nav_return.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.nav_return.ForeColor = System.Drawing.SystemColors.Window;
-            this.nav_return.Location = new System.Drawing.Point(57, 674);
-            this.nav_return.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.nav_return.Name = "nav_return";
-            this.nav_return.Size = new System.Drawing.Size(328, 135);
-            this.nav_return.TabIndex = 44;
-            this.nav_return.Text = "Return";
-            this.nav_return.UseVisualStyleBackColor = false;
-            this.nav_return.Click += new System.EventHandler(this.nav_return_Click);
+            this.nav_setting.BackColor = System.Drawing.Color.SteelBlue;
+            this.nav_setting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.nav_setting.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.nav_setting.ForeColor = System.Drawing.SystemColors.Window;
+            this.nav_setting.Location = new System.Drawing.Point(57, 674);
+            this.nav_setting.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.nav_setting.Name = "nav_setting";
+            this.nav_setting.Size = new System.Drawing.Size(328, 135);
+            this.nav_setting.TabIndex = 44;
+            this.nav_setting.Text = "Settings";
+            this.nav_setting.UseVisualStyleBackColor = false;
+            this.nav_setting.Click += new System.EventHandler(this.nav_setting_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.nav_return);
+            this.groupBox1.Controls.Add(this.nav_setting);
             this.groupBox1.Controls.Add(this.nav_cars);
             this.groupBox1.Controls.Add(this.nav_staffs);
-            this.groupBox1.Controls.Add(this.nav_rentals);
+            this.groupBox1.Controls.Add(this.nav_ManageContracts);
             this.groupBox1.Controls.Add(this.nav_customer);
             this.groupBox1.Location = new System.Drawing.Point(45, 185);
             this.groupBox1.Name = "groupBox1";
@@ -191,7 +197,7 @@
             // 
             this.lb_name.AutoSize = true;
             this.lb_name.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_name.Location = new System.Drawing.Point(583, 981);
+            this.lb_name.Location = new System.Drawing.Point(587, 966);
             this.lb_name.Name = "lb_name";
             this.lb_name.Size = new System.Drawing.Size(102, 45);
             this.lb_name.TabIndex = 48;
@@ -201,7 +207,7 @@
             // 
             this.lb_role.AutoSize = true;
             this.lb_role.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_role.Location = new System.Drawing.Point(583, 1032);
+            this.lb_role.Location = new System.Drawing.Point(587, 1009);
             this.lb_role.Name = "lb_role";
             this.lb_role.Size = new System.Drawing.Size(102, 45);
             this.lb_role.TabIndex = 49;
@@ -218,7 +224,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btn_log_out);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.Name = "Main";
@@ -239,9 +245,9 @@
         private System.Windows.Forms.Button nav_cars;
         private System.Windows.Forms.Button nav_staffs;
         private System.Windows.Forms.Button nav_customer;
-        private System.Windows.Forms.Button nav_rentals;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button nav_return;
+        private System.Windows.Forms.Button nav_ManageContracts;
+        private System.Windows.Forms.Button btn_log_out;
+        private System.Windows.Forms.Button nav_setting;
         private GroupBox groupBox1;
         private PictureBox pictureBox1;
         private Label label2;

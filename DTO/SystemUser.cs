@@ -16,10 +16,10 @@ namespace DTO
         public string address { get; set; }
         public string identifier { get; set; }
         public string shift { get; set; }
-        public string coefficientsSalary { get; set; }
+        public double coefficientsSalary { get; set; }
         public SystemUser() { }
 
-        public SystemUser(string id, string name, DateTime birth, string gender, string phone, string address, string identifier, string shift, string coefficientsSalary)
+        public SystemUser(string id, string name, DateTime birth, string gender, string phone, string address, string identifier, string shift, double coefficientsSalary)
         {
             this.id = id;
             this.name = name;

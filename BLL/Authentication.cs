@@ -25,9 +25,9 @@ namespace BLL
         public Respond LoginAuth()
         {
             SecurityUtils obj = new SecurityUtils();
-            string query = "SELECT SystemAccount.password, SystemAccount.role, SystemUser.name " +
+            string query = "SELECT SystemAccount.password, SystemAccount.role, SystemUser.name, SystemUser.user_id " +
                 "FROM SystemAccount JOIN SystemUser ON SystemAccount.user_id = SystemUser.user_id " +
-                "WHERE SystemAccount.user_name =@user_name";
+                "WHERE SystemAccount.user_name = @user_name";
 
             using (SqlCommand command = new SqlCommand(query, this.connection))
             {
@@ -40,8 +40,10 @@ namespace BLL
                     string password = reader.GetString(0);
                     string role = reader.GetString(1);
                     string name = reader.GetString(2);
+                    string id = reader.GetGuid(3).ToString();
                     List<string> res = new List<string>();
                     res.Add(role);
+                    res.Add(id);
                     res.Add(name);
                     if (password == this.password) // temporary
                     {

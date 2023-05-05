@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.ConstrainedExecution;
+using System.Diagnostics.Contracts;
 
 namespace BLL
 {
@@ -31,7 +32,7 @@ namespace BLL
                 foreach (DataRow row in table.Rows)
                 {
                     staffs.Add(new SystemUser(row["user_id"].ToString(), row["name"].ToString(), Convert.ToDateTime(row["birth"]), row["gender"].ToString(), row["phone"].ToString(),
-                        row["address"].ToString(), row["identifier"].ToString(), row["shift"].ToString(), row["coefficients_salary"].ToString()));
+                        row["address"].ToString(), row["identifier"].ToString(), row["shift"].ToString(), (double)row["coefficients_salary"]));
                 }
             }
 
@@ -141,7 +142,7 @@ namespace BLL
         public Respond InserCar(Car car)
         {
             string query = "INSERT INTO Car (car_name, car_img, engine_type, number_of_seats,car_price, car_year, number_of_km,rent_by_time, rent_by_date, deposit_price)" +
-                           "VALUES (@car_name, @img_src, @engine_type, @number_of_seats, @car_price, @car_year, @number_of_km,@rent_by_time, @rent_by_date, @deposit_price); ";
+                           "VALUES (@car_name, @img_src, @engine_type, @number_of_seats, @car_price, @car_year, @number_of_km, @rent_by_time, @rent_by_date, @deposit_price); ";
 
             using (SqlCommand command = new SqlCommand(query, this.connection))
             {
@@ -205,6 +206,99 @@ namespace BLL
             using(SqlCommand command = new SqlCommand(query, this.connection))
             {
                 command.Parameters.AddWithValue("@car_id", deleteId);
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    return new Respond(true, "", "Success!");
+                }
+                else
+                {
+                    return new Respond(false, "", "Failed!");
+                }
+            }
+        }
+
+        public Respond CreateNewCustomer(Customer customer)
+        {
+            string query = "INSERT INTO Customer (name, birth, gender, phone, address, identifier, driver_id) OUTPUT INSERTED.customer_id VALUES (@name, @birth, @gender, @phone, @address, @identifier, @driver_id);";
+            using(SqlCommand command = new SqlCommand(query, this.connection))
+            {
+                command.Parameters.AddWithValue("@name", customer.name);
+                command.Parameters.AddWithValue("@birth", customer.birth);
+                command.Parameters.AddWithValue("@gender", customer.gender);
+                command.Parameters.AddWithValue("@phone", customer.phone);
+                command.Parameters.AddWithValue("@address", customer.address);
+                command.Parameters.AddWithValue("@identifier", customer.identifier);
+                command.Parameters.AddWithValue("@driver_id", customer.driverId);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    string newCustomerId = reader.GetGuid(0).ToString();
+                    reader.Close();
+                    return new Respond(true, newCustomerId, "Success");
+                }
+                else
+                {
+                    reader.Close();
+                    return new Respond(false, null, "Failed to retrieve new customer ID");
+                }
+            }
+        }
+
+        public Respond GetAllContracts()
+        {
+            List<DTO.Contract> contracts = new List<DTO.Contract>();
+            string query = "SELECT * FROM PreContract";
+            using (SqlCommand command = new SqlCommand(query, this.connection))
+            {
+                try
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+                    while(reader.Read())
+                    {
+                        string id = reader.GetGuid(0).ToString();
+                        DateTime startDate = reader.GetDateTime(1);
+                        DateTime endDate = reader.GetDateTime(2);
+                        DateTime createDate = reader.GetDateTime(3);
+                        double totalPrices = reader.GetDouble(4);
+                        string paymentMethod = reader.GetString(5);
+                        string status = reader.GetString(6);
+                        Customer customer = new Customer(reader.GetGuid(7).ToString());
+                        TimeSpan startTime = reader.GetTimeSpan(8);
+                        TimeSpan endTime = reader.GetTimeSpan(9);
+                        Car car = new Car(reader.GetGuid(10).ToString());
+                        string staffId = reader.GetGuid(11).ToString();
+                        DTO.Contract contract = new DTO.Contract(id, staffId, customer, car, startDate, endDate, startTime, endTime, createDate, totalPrices, paymentMethod, status);
+                        contracts.Add(contract);
+                    }
+                     return new Respond(true, contracts, "Success");
+                }
+                catch (Exception ex)
+                {
+                    return new Respond(false, null, ex.ToString());
+                }
+
+            }
+        }
+
+        public Respond CreateContract(DTO.Contract contract)
+        {
+            string query = "INSERT INTO PreContract(user_id, customer_id, car_id, contract_date, rental_start_date, rental_start_time, rental_end_date, rental_end_time, total_prices, payment_method, status) " +
+                "VALUES(TRY_CONVERT(uniqueidentifier, @user_id), TRY_CONVERT(uniqueidentifier, @customer_id), TRY_CONVERT(uniqueidentifier, @car_id), @contract_date, @rental_start_date, @rental_start_time, @rental_end_date, @rental_end_time, @total_prices, @payment_method, @status)";
+            using(SqlCommand command = new SqlCommand(query, this.connection))
+            {
+                command.Parameters.AddWithValue("@user_id", contract.staffId);
+                command.Parameters.AddWithValue("@customer_id", contract.customer.id);
+                command.Parameters.AddWithValue("@car_id", contract.car.id);
+                command.Parameters.AddWithValue("contract_date", DateTime.Today);
+                command.Parameters.AddWithValue("@rental_start_date", contract.startDate.Date);
+                command.Parameters.AddWithValue("@rental_start_time", contract.startTime);
+                command.Parameters.AddWithValue("@rental_end_date", contract.endDate.Date);
+                command.Parameters.AddWithValue("@rental_end_time", contract.endTime);
+                command.Parameters.AddWithValue("@total_prices", contract.totalPrices);
+                command.Parameters.AddWithValue("@payment_method", contract.paymentMethod);
+                command.Parameters.AddWithValue("@status", contract.status);
                 int rowsAffected = command.ExecuteNonQuery();
 
                 if (rowsAffected > 0)

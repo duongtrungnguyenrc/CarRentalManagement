@@ -68,7 +68,7 @@ namespace GUI
         private void btn_edit_Click(object sender, EventArgs e)
         {
             SystemUser editStaff = new SystemUser(curr_id, txt_name.Text, txt_birth.Value, cb_gender.Text,
-               txt_phone.Text, txt_address.Text, txt_identity.Text, txt_shift.Text, txt_coefficients_salary.Text);
+               txt_phone.Text, txt_address.Text, txt_identity.Text, txt_shift.Text,double.Parse(txt_coefficients_salary.Text));
             DataModel model = new DataModel();
             Respond res = model.UpdateStaff(editStaff);
             data_staffs.Refresh();
@@ -104,7 +104,7 @@ namespace GUI
             }
 
             SystemUser newStaff = new SystemUser("", txt_name.Text, txt_birth.Value, cb_gender.Text,
-                txt_phone.Text, txt_address.Text, txt_identity.Text, txt_shift.Text, txt_coefficients_salary.Text);
+                txt_phone.Text, txt_address.Text, txt_identity.Text, txt_shift.Text, double.Parse(txt_coefficients_salary.Text));
             DataModel model = new DataModel();
             Respond res = model.InsertStaff(newStaff);
             data_staffs.Refresh();

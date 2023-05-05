@@ -11,20 +11,23 @@ using System.Windows.Forms;
 namespace GUI
 {
     public partial class Main : Form
-    {   
-        public Main(string role, string name)
+    {
+        private string userID;
+        private string role;
+        public Main(string role, string id, string name)
         {
             InitializeComponent();
             if(!String.Equals(role, "admin", StringComparison.OrdinalIgnoreCase)) { 
                 nav_staffs.Enabled = false;
             }
-            lb_name.Text = "Hello: " + name;
+            this.userID = id;
+            this.role = role;
+            lb_name.Text = "User: " + name;
             lb_role.Text = "Role: " + role;
         }
 
         private void nav_cars_Click(object sender, EventArgs e)
         {
-            this.Hide();
             ManagerCars form = new ManagerCars();
             form.ShowDialog();
         }
@@ -34,26 +37,21 @@ namespace GUI
             ManagerStaffs form = new ManagerStaffs();
             form.ShowDialog();
         }
-
-        private void nav_return_Click(object sender, EventArgs e)
+        private void nav_ManageContracts_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void nav_rentals_Click(object sender, EventArgs e)
-        {
-            DisplayCars form = new DisplayCars();
+            ManageContracts form = new ManageContracts(this.userID);
             form.ShowDialog();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void btn_log_out_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void nav_setting_Click(object sender, EventArgs e)
         {
-
+            Setting form = new Setting(this.userID, this.role);
+            form.ShowDialog();
         }
     }
 }

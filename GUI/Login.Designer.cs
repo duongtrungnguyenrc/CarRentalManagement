@@ -47,7 +47,6 @@
             // 
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.panel1.Name = "panel1";
@@ -56,6 +55,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.SteelBlue;
@@ -136,6 +138,7 @@
             // btn_login
             // 
             this.btn_login.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_login.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_login.Location = new System.Drawing.Point(1120, 558);
@@ -187,7 +190,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private Label label4;
@@ -196,5 +198,6 @@
         private TextBox txt_password;
         private Button btn_login;
         private CheckBox show_password;
+        private PictureBox pictureBox1;
     }
 }

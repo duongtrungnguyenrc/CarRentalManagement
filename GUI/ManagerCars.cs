@@ -1,4 +1,5 @@
 ﻿using BLL;
+using ClosedXML.Excel;
 using DTO;
 using GUI;
 using System;
@@ -28,7 +29,7 @@ namespace GUI
         {
             DataModel model = new DataModel();
             List<Car> cars = model.GetCars();
-            data_cars.RowTemplate.Height = 200; // Đặt chiều cao dòng là 100 pixel
+            data_cars.RowTemplate.Height = 200; // Đặt chiều cao dòng là 200 pixel
 
             foreach (Car car in cars)
             {
@@ -63,20 +64,19 @@ namespace GUI
         private void btn_browser_image_Click(object sender, EventArgs e)
         {
             // Khởi tạo đối tượng OpenFileDialog để cho phép người dùng chọn file
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Image Files (*.jpg; *.png; *.bmp)|*.jpg; *.png; *.bmp";
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.jpg; *.png; *.bmp)|*.jpg; *.png; *.bmp";
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 // Lấy đường dẫn của file được chọn
-                string filePath = openFileDialog1.FileName;
+                string filePath = openFileDialog.FileName;
                 Image image = Image.FromFile(filePath);
                 // Gán ảnh cho PictureBox
                 img_car.SizeMode = PictureBoxSizeMode.CenterImage;
                 img_car.Image = image;
                 img_car.ImageLocation = filePath;
             }
-
         }
 
 
@@ -118,10 +118,10 @@ namespace GUI
 
             //push data to form
             DataGridViewRow row = data_cars.Rows[e.RowIndex];
-            img_car.Image =(Image) row.Cells["image"].Value;
+            img_car.Image = (Image)row.Cells["image"].Value;
             txt_name.Text = row.Cells["name"].Value.ToString();
             cb_engine.Text = row.Cells["engineType"].Value.ToString();
-            txt_car_year.Value = (DateTime) row.Cells["year"].Value;
+            txt_car_year.Value = (DateTime)row.Cells["year"].Value;
             txt_car_price.Text = row.Cells["price"].Value.ToString();
             txt_km.Text = row.Cells["numberOfKm"].Value.ToString();
             txt_hour_rent.Text = row.Cells["rentbyTime"].Value.ToString();
@@ -129,6 +129,8 @@ namespace GUI
             txt_deposit_price.Text = row.Cells["depositPrice"].Value.ToString();
             txt_num_of_seats.Text = row.Cells["numberOfSeats"].Value.ToString();
             txt_id.Text = row.Cells["id"].Value.ToString();
+            img_car.SizeMode = PictureBoxSizeMode.Zoom;
+
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -248,6 +250,9 @@ namespace GUI
             if (res.getStatus())
             {
                 MessageBox.Show("Successfully update car!");
+                data_cars.Rows.Clear();
+                loadCars();
+                clearForm();
             }
             else
             {
@@ -268,5 +273,48 @@ namespace GUI
                 MessageBox.Show("Failed to delete new car!");
             }
         }
+        private void btn_export_Click(object sender, EventArgs e)
+        {
+            //Create a new workbook
+            var workbook = new XLWorkbook();
+
+            //Create a new worksheet
+            var worksheet = workbook.Worksheets.Add("Sheet1");
+
+            //Export header row
+            for (int i = 1; i <= data_cars.Columns.Count; i++)
+            {
+                worksheet.Cell(1, i).Value = data_cars.Columns[i - 1].HeaderText;
+            }
+
+            //Export data rows
+            for (int i = 1; i <= data_cars.Rows.Count; i++)
+            {
+                for (int j = 2; j <= data_cars.Columns.Count; j++)
+                {
+                    var value = data_cars.Rows[i - 1].Cells[j - 1].Value;
+                    if (value != null)
+                    {
+                        worksheet.Cell(i + 1, j).Value = value.ToString();
+                    }
+                }
+            }
+
+            //Save the workbook
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "Excel File (*.xlsx)|*.xlsx";
+            saveDialog.FileName = "Cars.xlsx";
+
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    File.WriteAllBytes(saveDialog.FileName, stream.ToArray());
+                }
+
+                MessageBox.Show("Export completed!");
+            }
+        }
     }
-}
+    }

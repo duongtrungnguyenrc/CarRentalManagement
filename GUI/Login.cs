@@ -25,13 +25,19 @@ namespace GUI
             Respond respond = authOBJ.LoginAuth();
             if (respond.getStatus()) {
                 List<string> data = (List<string>) respond.getData();
-                Main form = new Main(data[0], data[1]);
+                Main form = new Main(data[0], data[1], data[2]);
+                clearForm();
                 form.ShowDialog();
             }
             else
             {
                 MessageBox.Show((string)respond.getDescription());
             }
+        }
+
+        private void clearForm()
+        {
+            txt_password.Text = "";
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

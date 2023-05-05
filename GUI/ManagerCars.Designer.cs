@@ -70,6 +70,7 @@
             this.RentByDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.depositPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numberOfSeats = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_export = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_car)).BeginInit();
             this.gb_data_form.SuspendLayout();
@@ -186,10 +187,10 @@
             this.btn_delete.Enabled = false;
             this.btn_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_delete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_delete.Location = new System.Drawing.Point(2050, 230);
+            this.btn_delete.Location = new System.Drawing.Point(2050, 190);
             this.btn_delete.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(165, 73);
+            this.btn_delete.Size = new System.Drawing.Size(165, 66);
             this.btn_delete.TabIndex = 41;
             this.btn_delete.Text = "Delete";
             this.btn_delete.UseVisualStyleBackColor = false;
@@ -260,6 +261,7 @@
             // 
             // gb_data_form
             // 
+            this.gb_data_form.Controls.Add(this.btn_export);
             this.gb_data_form.Controls.Add(this.txt_id);
             this.gb_data_form.Controls.Add(this.btn_edit);
             this.gb_data_form.Controls.Add(this.txt_km);
@@ -309,10 +311,10 @@
             this.btn_edit.Enabled = false;
             this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_edit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_edit.Location = new System.Drawing.Point(2050, 138);
+            this.btn_edit.Location = new System.Drawing.Point(2050, 112);
             this.btn_edit.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(165, 76);
+            this.btn_edit.Size = new System.Drawing.Size(165, 69);
             this.btn_edit.TabIndex = 69;
             this.btn_edit.Text = "Edit";
             this.btn_edit.UseVisualStyleBackColor = false;
@@ -363,10 +365,10 @@
             this.btn_save.BackColor = System.Drawing.Color.SteelBlue;
             this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_save.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_save.Location = new System.Drawing.Point(2050, 46);
+            this.btn_save.Location = new System.Drawing.Point(2050, 37);
             this.btn_save.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(165, 76);
+            this.btn_save.Size = new System.Drawing.Size(165, 69);
             this.btn_save.TabIndex = 54;
             this.btn_save.Text = "Save";
             this.btn_save.UseVisualStyleBackColor = false;
@@ -377,10 +379,10 @@
             this.btn_exit.BackColor = System.Drawing.Color.SteelBlue;
             this.btn_exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_exit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_exit.Location = new System.Drawing.Point(2050, 322);
+            this.btn_exit.Location = new System.Drawing.Point(2050, 264);
             this.btn_exit.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Size = new System.Drawing.Size(165, 73);
+            this.btn_exit.Size = new System.Drawing.Size(165, 66);
             this.btn_exit.TabIndex = 42;
             this.btn_exit.Text = "Exit";
             this.btn_exit.UseVisualStyleBackColor = false;
@@ -540,6 +542,20 @@
             this.numberOfSeats.Name = "numberOfSeats";
             this.numberOfSeats.Width = 200;
             // 
+            // btn_export
+            // 
+            this.btn_export.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_export.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_export.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_export.Location = new System.Drawing.Point(2050, 336);
+            this.btn_export.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.btn_export.Name = "btn_export";
+            this.btn_export.Size = new System.Drawing.Size(165, 66);
+            this.btn_export.TabIndex = 71;
+            this.btn_export.Text = "Export";
+            this.btn_export.UseVisualStyleBackColor = false;
+            this.btn_export.Click += new System.EventHandler(this.btn_export_Click);
+            // 
             // ManagerCars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
@@ -608,5 +624,6 @@
         private DataGridViewTextBoxColumn numberOfSeats;
         private Button btn_edit;
         private TextBox txt_id;
+        private Button btn_export;
     }
 }

@@ -33,5 +33,9 @@ namespace DTO
             this.engineType = engineType;
             this.numberOfSeats = numberOfSeats;
         }
+        public Car(string id)
+        {
+            this.id = id;
+        }
     }
 }

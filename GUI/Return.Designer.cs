@@ -225,7 +225,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 24);
             this.label2.TabIndex = 85;
-            this.label2.Text = "Rentals";
+            this.label2.Text = "ManageContract";
             // 
             // textBox5
             // 
