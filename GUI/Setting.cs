@@ -22,6 +22,7 @@ namespace GUI
         public Setting(string userID, string role)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen; // Hiển thị form ở giữa màn hình khi show lên
             this.userID = userID;
             LoadUserInfo();
             LoadAccount();

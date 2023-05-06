@@ -17,6 +17,7 @@ namespace GUI
         public Login()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen; // Hiển thị form ở giữa màn hình khi show lên
         }
 
         private void btn_login_Click(object sender, EventArgs e)

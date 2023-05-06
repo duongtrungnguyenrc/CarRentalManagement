@@ -71,6 +71,7 @@
             this.groupBox3.SuspendLayout();
             this.gb_car.SuspendLayout();
             this.SuspendLayout();
+            this.FormClosed += CreateContract_FormClosed;
             // 
             // cars_list
             // 
@@ -599,6 +600,14 @@
             this.gb_car.ResumeLayout(false);
             this.ResumeLayout(false);
 
+        }
+
+        private void CreateContract_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           if(this.Owner!= null)
+            {
+                this.Owner.Show();
+            }
         }
 
         #endregion

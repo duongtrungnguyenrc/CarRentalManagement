@@ -22,6 +22,7 @@ namespace GUI
         public ManagerCars()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen; // Hiển thị form ở giữa màn hình khi show lên
             loadCars();
         }
 
@@ -126,7 +127,7 @@ namespace GUI
             txt_hour_rent.Text = row.Cells["rentbyTime"].Value.ToString();
             txt_day_rent.Text = row.Cells["rentByDate"].Value.ToString();
             txt_deposit_price.Text = row.Cells["depositPrice"].Value.ToString();
-            txt_num_of_seats.Text = row.Cells["numberOfSeats"].Value.ToString();
+            cb_number_of_seats.Text = row.Cells["numberOfSeats"].Value.ToString();
             txt_id.Text = row.Cells["id"].Value.ToString();
             img_car.SizeMode = PictureBoxSizeMode.Zoom;
         }

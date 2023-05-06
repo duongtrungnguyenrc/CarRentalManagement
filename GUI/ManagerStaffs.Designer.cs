@@ -68,13 +68,7 @@
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             this.FormClosed += ManagerStaffs_FormClosed;
-            void ManagerStaffs_FormClosed(object sender, FormClosedEventArgs e)
-            {
-                if (this.Owner != null)
-                {
-                    this.Owner.Show();
-                }
-            }
+           
             // 
             // panel1
             // 
@@ -489,6 +483,13 @@
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
+        }
+        private void ManagerStaffs_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.Owner != null)
+            {
+                this.Owner.Show();
+            }
         }
 
         #endregion

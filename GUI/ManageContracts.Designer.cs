@@ -76,6 +76,7 @@
             // btn_exit
             // 
             this.btn_exit.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_exit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_exit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_exit.Location = new System.Drawing.Point(997, 67);
@@ -90,6 +91,7 @@
             // btn_add
             // 
             this.btn_add.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_add.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_add.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_add.Location = new System.Drawing.Point(643, 67);
@@ -201,6 +203,7 @@
             // btn_export
             // 
             this.btn_export.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_export.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_export.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_export.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_export.Location = new System.Drawing.Point(820, 67);
@@ -231,6 +234,14 @@
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
+        }
+
+        private void ManageContracts_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           if(this.Owner!= null)
+            {
+                this.Owner.Show();
+            }
         }
 
         #endregion

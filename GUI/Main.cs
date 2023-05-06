@@ -17,7 +17,8 @@ namespace GUI
         public Main(string role, string id, string name)
         {
             InitializeComponent();
-            if(!String.Equals(role, "admin", StringComparison.OrdinalIgnoreCase)) { 
+            this.StartPosition = FormStartPosition.CenterScreen; // Hiển thị form ở giữa màn hình khi show lên
+            if (!String.Equals(role, "admin", StringComparison.OrdinalIgnoreCase)) { 
                 nav_staffs.Enabled = false;
             }
             this.userID = id;
@@ -46,14 +47,6 @@ namespace GUI
             form.ShowDialog(this);
         }
 
-        private void btn_log_out_Click(object sender, EventArgs e)
-        {
-            if (this.Owner != null)
-            {
-                this.Owner.Show();
-            }
-        }
-
         private void nav_setting_Click(object sender, EventArgs e)
         {
             Setting form = new Setting(this.userID, this.role);
@@ -61,15 +54,19 @@ namespace GUI
             form.ShowDialog(this);
         }
 
-        private void Main_FormClosed(object sender, FormClosedEventArgs e)
-        {
-           Application.Exit();
-        }
-
         private void nav_new_contract_Click(object sender, EventArgs e)
         {
             CreateContract form = new CreateContract(this.userID);
             form.ShowDialog();
+        }
+
+        private void btn_log_out_Click(object sender, EventArgs e)
+        {
+            if(this.Owner!= null)
+            {
+                this.Owner.Show();
+                this.Close();
+            }
         }
     }
 }

@@ -20,6 +20,7 @@ namespace GUI
         public ManageContracts(string userID)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen; // Hiển thị form ở giữa màn hình khi show lên
             this.userID = userID;
             loadContract();
         }
@@ -46,6 +47,7 @@ namespace GUI
         private void btn_add_Click(object sender, EventArgs e)
         {
             CreateContract form = new CreateContract(this.userID);
+            this.Hide();
             form.ShowDialog(this);
         }
 
@@ -105,14 +107,6 @@ namespace GUI
 
             ViewContract form = new ViewContract(this.userID, selectedRow);
             form.ShowDialog();
-        }
-
-        private void ManageContracts_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if(this.Owner!= null)
-            {
-                this.Owner.Show();
-            }
         }
     }
 }

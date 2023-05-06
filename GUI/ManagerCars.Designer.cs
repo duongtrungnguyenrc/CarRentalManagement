@@ -40,13 +40,13 @@ namespace GUI
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btn_delete = new System.Windows.Forms.Button();
-            this.txt_num_of_seats = new System.Windows.Forms.TextBox();
             this.txt_hour_rent = new System.Windows.Forms.TextBox();
             this.txt_day_rent = new System.Windows.Forms.TextBox();
             this.img_car = new System.Windows.Forms.PictureBox();
             this.btn_browser_image = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.gb_data_form = new System.Windows.Forms.GroupBox();
+            this.cb_number_of_seats = new System.Windows.Forms.ComboBox();
             this.btn_export = new System.Windows.Forms.Button();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.btn_edit = new System.Windows.Forms.Button();
@@ -78,7 +78,6 @@ namespace GUI
             this.gb_data_form.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_cars)).BeginInit();
             this.SuspendLayout();
-            this.FormClosed += ManagerCars_FormClosed;
             // 
             // panel1
             // 
@@ -187,6 +186,7 @@ namespace GUI
             // btn_delete
             // 
             this.btn_delete.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_delete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_delete.Enabled = false;
             this.btn_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_delete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -198,15 +198,6 @@ namespace GUI
             this.btn_delete.Text = "Delete";
             this.btn_delete.UseVisualStyleBackColor = false;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
-            // 
-            // txt_num_of_seats
-            // 
-            this.txt_num_of_seats.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txt_num_of_seats.Location = new System.Drawing.Point(789, 217);
-            this.txt_num_of_seats.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.txt_num_of_seats.Name = "txt_num_of_seats";
-            this.txt_num_of_seats.Size = new System.Drawing.Size(313, 39);
-            this.txt_num_of_seats.TabIndex = 48;
             // 
             // txt_hour_rent
             // 
@@ -239,6 +230,7 @@ namespace GUI
             // btn_browser_image
             // 
             this.btn_browser_image.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_browser_image.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_browser_image.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_browser_image.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_browser_image.Location = new System.Drawing.Point(1793, 346);
@@ -264,6 +256,7 @@ namespace GUI
             // 
             // gb_data_form
             // 
+            this.gb_data_form.Controls.Add(this.cb_number_of_seats);
             this.gb_data_form.Controls.Add(this.btn_export);
             this.gb_data_form.Controls.Add(this.txt_id);
             this.gb_data_form.Controls.Add(this.btn_edit);
@@ -284,7 +277,6 @@ namespace GUI
             this.gb_data_form.Controls.Add(this.img_car);
             this.gb_data_form.Controls.Add(this.txt_day_rent);
             this.gb_data_form.Controls.Add(this.txt_hour_rent);
-            this.gb_data_form.Controls.Add(this.txt_num_of_seats);
             this.gb_data_form.Controls.Add(this.label9);
             this.gb_data_form.Controls.Add(this.txt_name);
             this.gb_data_form.Controls.Add(this.lb_hour_rent);
@@ -299,9 +291,23 @@ namespace GUI
             this.gb_data_form.TabStop = false;
             this.gb_data_form.Text = "Data form";
             // 
+            // cb_number_of_seats
+            // 
+            this.cb_number_of_seats.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_number_of_seats.FormattingEnabled = true;
+            this.cb_number_of_seats.Items.AddRange(new object[] {
+            "4",
+            "5",
+            "7"});
+            this.cb_number_of_seats.Location = new System.Drawing.Point(786, 212);
+            this.cb_number_of_seats.Name = "cb_number_of_seats";
+            this.cb_number_of_seats.Size = new System.Drawing.Size(316, 40);
+            this.cb_number_of_seats.TabIndex = 72;
+            // 
             // btn_export
             // 
             this.btn_export.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_export.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_export.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_export.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_export.Location = new System.Drawing.Point(2050, 336);
@@ -325,6 +331,7 @@ namespace GUI
             // btn_edit
             // 
             this.btn_edit.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_edit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_edit.Enabled = false;
             this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_edit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -349,11 +356,12 @@ namespace GUI
             this.txt_car_price.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txt_car_price.Location = new System.Drawing.Point(789, 142);
             this.txt_car_price.Name = "txt_car_price";
-            this.txt_car_price.Size = new System.Drawing.Size(311, 39);
+            this.txt_car_price.Size = new System.Drawing.Size(313, 39);
             this.txt_car_price.TabIndex = 67;
             // 
             // cb_engine
             // 
+            this.cb_engine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_engine.FormattingEnabled = true;
             this.cb_engine.Items.AddRange(new object[] {
             "gasoline",
@@ -380,6 +388,7 @@ namespace GUI
             // btn_save
             // 
             this.btn_save.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_save.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_save.Location = new System.Drawing.Point(2050, 37);
@@ -394,6 +403,7 @@ namespace GUI
             // btn_exit
             // 
             this.btn_exit.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_exit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_exit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_exit.Location = new System.Drawing.Point(2050, 264);
@@ -595,7 +605,6 @@ namespace GUI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btn_delete;
-        private System.Windows.Forms.TextBox txt_num_of_seats;
         private System.Windows.Forms.TextBox txt_hour_rent;
         private System.Windows.Forms.TextBox txt_day_rent;
         private System.Windows.Forms.PictureBox img_car;
@@ -627,5 +636,6 @@ namespace GUI
         private Button btn_edit;
         private TextBox txt_id;
         private Button btn_export;
+        private ComboBox cb_number_of_seats;
     }
 }
