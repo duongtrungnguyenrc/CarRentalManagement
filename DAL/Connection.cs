@@ -15,10 +15,11 @@ namespace DAL
             if (conn == null)
             {
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder["Data Source"] = "DESKTOP-CBHB9E2";
-                builder["integrated Security"] = true;
+                builder["Data Source"] = "171.244.61.127";
+                builder["Integrated Security"] = false; // Chuyển sang xác thực SQL Server
+                builder["User ID"] = "sa"; // Tên người dùng
+                builder["Password"] = "Nguyen292003."; // Mật khẩu
                 builder["Initial Catalog"] = "CarRental";
-                builder.UserID = "DESKTOP-CBHB9E2\\Nguyen";
                 builder["MultipleActiveResultSets"] = true;
                 conn = new SqlConnection(builder.ConnectionString);
                 conn.Open();
@@ -28,4 +29,6 @@ namespace DAL
                 return conn;
         }
     }
+
+
 }
