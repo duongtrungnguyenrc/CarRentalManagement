@@ -6,53 +6,112 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using DTO;
 using DAL;
+using System.Data;
 
 namespace BLL
 {
-    public class UserModel
+    public static class UserModel
     {
-
-        public string Email { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Password { get; set; }
-        public string Role { get; set; }
-
-        private SqlConnection connection;
-        public UserModel() {
-            this.connection = Connection.GetConnection();
-        }
-
-        public UserModel(string email, string firstName, string lastName, string password, string role)
+        public static List<SystemUser> GetUsers()
         {
-            Email = email;
-            FirstName = firstName;
-            LastName = lastName;
-            Password = password;
-            Role = role;
-        }
+            List<SystemUser> staffs = new List<SystemUser>();
+            string query = "SELECT * FROM SystemUser";
 
-        public void InsertUser(SqlConnection connection)
-        {
-            string query = "INSERT INTO users (email, first_name, last_name, password, role) " +
-                           "VALUES (@Email, @FirstName, @LastName, @Password, @Role)";
-
-            using (SqlCommand command = new SqlCommand(query, connection))
+            using (SqlDataAdapter adapter = new SqlDataAdapter(query, Connection.GetConnection()))
             {
-                command.Parameters.AddWithValue("@Email", Email);
-                command.Parameters.AddWithValue("@FirstName", FirstName);
-                command.Parameters.AddWithValue("@LastName", LastName);
-                command.Parameters.AddWithValue("@Password", Password);
-                command.Parameters.AddWithValue("@Role", Role);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
 
-                command.ExecuteNonQuery();
+                foreach (DataRow row in table.Rows)
+                {
+                    staffs.Add(new SystemUser(row["user_id"].ToString(), row["name"].ToString(), Convert.ToDateTime(row["birth"]), row["gender"].ToString(), row["phone"].ToString(),
+                        row["address"].ToString(), row["identifier"].ToString(), row["shift"].ToString(), (double)row["coefficients_salary"]));
+                }
+            }
+
+            return staffs;
+        }
+
+        public static Respond CreateUser(SystemUser user)
+        {
+            string query = "INSERT INTO SystemUser (name, birth, gender, phone, address, identifier, shift, coefficients_salary) " +
+                           "VALUES (@name, @birth, @gender, @phone, @address, @identifier, @shift, @coefficients_salary); ";
+
+            using (SqlCommand command = new SqlCommand(query, Connection.GetConnection()))
+            {
+                command.Parameters.AddWithValue("@name", user.name);
+                command.Parameters.AddWithValue("@birth", user.birth);
+                command.Parameters.AddWithValue("@gender", user.gender);
+                command.Parameters.AddWithValue("@phone", user.phone);
+                command.Parameters.AddWithValue("@address", user.address);
+                command.Parameters.AddWithValue("@identifier", user.identifier);
+                command.Parameters.AddWithValue("@shift", user.shift);
+                command.Parameters.AddWithValue("@coefficients_salary", user.coefficientsSalary);
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    return new Respond(true, "", "Success!");
+                }
+                else
+                {
+                    return new Respond(false, "", "Failed!");
+                }
             }
         }
 
-        public Respond getUserById(string id)
+        public static Respond DeleteUser(string deleteId)
+        {
+            string query = "delete from SystemUser where user_id=@user_id";
+            using (SqlCommand command = new SqlCommand(query, Connection.GetConnection()))
+            {
+                command.Parameters.AddWithValue("@user_id", deleteId);
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    return new Respond(true, "", "Delete Success!");
+                }
+                else
+                {
+                    return new Respond(false, "", "Delete Failed!");
+                }
+            }
+        }
+
+        public static Respond UpdateUser(SystemUser user)
+        {
+            string query = "UPDATE SystemUser set name=@name, gender=@gender, birth=@birth, address=@address, identifier=@identifier, shift=@shift, coefficients_salary=@coefficients_salary " +
+                "where user_id=@id";
+            using (SqlCommand command = new SqlCommand(query, Connection.GetConnection()))
+            {
+                command.Parameters.AddWithValue("@id", user.id);
+                command.Parameters.AddWithValue("@name", user.name);
+                command.Parameters.AddWithValue("@birth", user.birth);
+                command.Parameters.AddWithValue("@gender", user.gender);
+                command.Parameters.AddWithValue("@phone", user.phone);
+                command.Parameters.AddWithValue("@address", user.address);
+                command.Parameters.AddWithValue("@identifier", user.identifier);
+                command.Parameters.AddWithValue("@shift", user.shift);
+                command.Parameters.AddWithValue("@coefficients_salary", user.coefficientsSalary);
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    return new Respond(true, "", "Delete Success!");
+                }
+                else
+                {
+                    return new Respond(false, "", "Delete Failed!");
+                }
+            }
+        }
+        public static Respond getUserById(string id)
         {
             string query = "SELECT user_id, name, birth, gender, phone, address, identifier, shift, coefficients_salary FROM SystemUser WHERE user_id=@user_id";
-            using(SqlCommand command = new SqlCommand(query, this.connection))
+            using(SqlCommand command = new SqlCommand(query, Connection.GetConnection()))
             {
                 command.Parameters.AddWithValue("@user_id", id);
                 try
@@ -71,10 +130,10 @@ namespace BLL
             }
         }
 
-        public Respond getAccountById(string id)
+        public static Respond getAccountById(string id)
         {
             string query = "SELECT account_id, user_name, password, role, user_id FROM SystemAccount WHERE user_id=@user_id";
-            using (SqlCommand command = new SqlCommand(query, this.connection))
+            using (SqlCommand command = new SqlCommand(query, Connection.GetConnection()))
             {
                 command.Parameters.AddWithValue("@user_id", id);
                 try
@@ -92,11 +151,11 @@ namespace BLL
             }
         }
 
-        public Respond updateAccount(SystemAccount account)
+        public static Respond updateAccount(SystemAccount account)
         {
             string query = "UPDATE SystemAccount SET user_name=@user_name, password=@password" +
                 " WHERE user_id=@user_id";
-            using (SqlCommand command = new SqlCommand(query, this.connection))
+            using (SqlCommand command = new SqlCommand(query, Connection.GetConnection()))
             {
                 command.Parameters.AddWithValue("@user_name", account.userName);
                 command.Parameters.AddWithValue("@password", account.password);
@@ -122,39 +181,11 @@ namespace BLL
             }
         }
 
-        public Respond UpdateUser(SystemUser user)
-        {
-            string query = "UPDATE SystemUser set name=@name, gender=@gender, birth=@birth, address=@address, identifier=@identifier, shift=@shift, coefficients_salary=@coefficients_salary " +
-                "where user_id=@id";
-            using (SqlCommand command = new SqlCommand(query, this.connection))
-            {
-                command.Parameters.AddWithValue("@id", user.id);
-                command.Parameters.AddWithValue("@name", user.name);
-                command.Parameters.AddWithValue("@birth", user.birth);
-                command.Parameters.AddWithValue("@gender", user.gender);
-                command.Parameters.AddWithValue("@phone", user.phone);
-                command.Parameters.AddWithValue("@address", user.address);
-                command.Parameters.AddWithValue("@identifier", user.identifier);
-                command.Parameters.AddWithValue("@shift", user.shift);
-                command.Parameters.AddWithValue("@coefficients_salary", user.coefficientsSalary);
-                int rowsAffected = command.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
-                {
-                    return new Respond(true, "", "Successfully to update informations!");
-                }
-                else
-                {
-                    return new Respond(false, "", "Failed to update information!");
-                }
-            }
-        }
-
-        public Respond getBaseSalary()
+        public static Respond getBaseSalary()
         {
             string query = "SELECT TOP 1 * FROM Salary ORDER BY update_time DESC";
 
-            using (SqlCommand command = new SqlCommand(query, this.connection))
+            using (SqlCommand command = new SqlCommand(query, Connection.GetConnection()))
             {
                 try
                 {
@@ -167,7 +198,6 @@ namespace BLL
                 {
                     return new Respond(false, null, ex.ToString());
                 }
-
             }
         }
     }

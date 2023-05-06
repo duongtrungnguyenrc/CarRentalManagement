@@ -59,7 +59,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_back = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
-            this.btn_edit = new System.Windows.Forms.Button();
+            this.btn_update = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
@@ -359,7 +359,6 @@
             this.txt_address.Size = new System.Drawing.Size(500, 122);
             this.txt_address.TabIndex = 69;
             this.txt_address.Text = "";
-            this.txt_address.TextChanged += new System.EventHandler(this.txt_address_TextChanged);
             // 
             // groupBox1
             // 
@@ -385,7 +384,6 @@
             this.groupBox1.TabIndex = 70;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Data form";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btn_back
             // 
@@ -413,20 +411,22 @@
             this.btn_delete.TabIndex = 73;
             this.btn_delete.Text = "Delete";
             this.btn_delete.UseVisualStyleBackColor = false;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click_1);
             // 
-            // btn_edit
+            // btn_update
             // 
-            this.btn_edit.BackColor = System.Drawing.Color.SteelBlue;
-            this.btn_edit.Enabled = false;
-            this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_edit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_edit.Location = new System.Drawing.Point(35, 117);
-            this.btn_edit.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(165, 69);
-            this.btn_edit.TabIndex = 72;
-            this.btn_edit.Text = "Edit";
-            this.btn_edit.UseVisualStyleBackColor = false;
+            this.btn_update.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_update.Enabled = false;
+            this.btn_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_update.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_update.Location = new System.Drawing.Point(35, 117);
+            this.btn_update.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.btn_update.Name = "btn_update";
+            this.btn_update.Size = new System.Drawing.Size(165, 69);
+            this.btn_update.TabIndex = 72;
+            this.btn_update.Text = "Update";
+            this.btn_update.UseVisualStyleBackColor = false;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // btn_add
             // 
@@ -446,7 +446,7 @@
             // 
             this.groupBox2.Controls.Add(this.btn_add);
             this.groupBox2.Controls.Add(this.btn_back);
-            this.groupBox2.Controls.Add(this.btn_edit);
+            this.groupBox2.Controls.Add(this.btn_update);
             this.groupBox2.Controls.Add(this.btn_delete);
             this.groupBox2.Location = new System.Drawing.Point(1862, 175);
             this.groupBox2.Name = "groupBox2";
@@ -516,5 +516,6 @@
         private DataGridViewTextBoxColumn shift;
         private DataGridViewTextBoxColumn identifier;
         private DataGridViewTextBoxColumn salary;
+        private Button btn_update;
     }
 }

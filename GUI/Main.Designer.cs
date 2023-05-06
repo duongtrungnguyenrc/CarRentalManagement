@@ -63,7 +63,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(572, 44);
+            this.label1.Location = new System.Drawing.Point(577, 44);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(496, 63);
@@ -168,7 +168,7 @@
             this.groupBox1.Controls.Add(this.nav_customer);
             this.groupBox1.Location = new System.Drawing.Point(45, 185);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(444, 873);
+            this.groupBox1.Size = new System.Drawing.Size(444, 884);
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Control";
@@ -177,7 +177,7 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(725, 415);
+            this.pictureBox1.Location = new System.Drawing.Point(698, 415);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(790, 500);
             this.pictureBox1.TabIndex = 46;
@@ -187,7 +187,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(644, 280);
+            this.label2.Location = new System.Drawing.Point(615, 280);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(946, 71);
             this.label2.TabIndex = 47;

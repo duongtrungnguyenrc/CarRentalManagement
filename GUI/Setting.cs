@@ -31,8 +31,7 @@ namespace GUI
 
         private void LoadUserInfo()
         {
-            UserModel model = new UserModel();
-            Respond res = model.getUserById(userID);
+            Respond res = UserModel.getUserById(userID);
             if (res.getStatus())
             {
                 this.user = (SystemUser)res.getData();
@@ -54,8 +53,7 @@ namespace GUI
 
         private void LoadAccount()
         {
-            UserModel model = new UserModel();
-            Respond res = model.getAccountById(txt_id.Text);
+            Respond res = UserModel.getAccountById(txt_id.Text);
             if (res.getStatus())
             {
                 SystemAccount account = (SystemAccount)res.getData();
@@ -72,8 +70,7 @@ namespace GUI
 
         private void LoadSalary()
         {
-            UserModel model = new UserModel();
-            Respond res = model.getBaseSalary();
+            Respond res = UserModel.getBaseSalary();
             if (res.getStatus())
             {
                 BaseSalary baseSalary = (BaseSalary)res.getData();
@@ -138,10 +135,9 @@ namespace GUI
 
         private void btn_save_info_Click(object sender, EventArgs e)
         {
-            UserModel model = new UserModel();
             SystemUser user = new SystemUser(txt_id.Text, txt_name.Text, txt_birth.Value, cb_gender.Text, 
                 txt_phone.Text, txt_address.Text, txt_identity.Text, cb_shift.Text, double.Parse(txt_coefficients_salary.Text));
-            Respond res = model.UpdateUser(user);
+            Respond res = UserModel.UpdateUser(user);
             if(res.getStatus())
             {
                 btn_save_info.Enabled = false;
@@ -169,13 +165,13 @@ namespace GUI
 
         private void btn_save_account_Click(object sender, EventArgs e)
         {
-            UserModel model = new UserModel();
             SystemAccount account = new SystemAccount(txt_account_id.Text, txt_user_name.Text, txt_password.Text, cb_role.Text ,this.userID);
-            Respond res = model.updateAccount(account);
+            Respond res = UserModel.updateAccount(account);
             if(res.getStatus())
             {
                 txt_password.UseSystemPasswordChar = true;
                 btn_save_account.Enabled = false;
+                disableForm(gb_account);
                 MessageBox.Show(res.getDescription());
             }
             else {

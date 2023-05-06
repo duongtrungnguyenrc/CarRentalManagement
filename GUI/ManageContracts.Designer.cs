@@ -148,6 +148,7 @@
             this.data_contracts.RowHeadersWidth = 82;
             this.data_contracts.Size = new System.Drawing.Size(1819, 704);
             this.data_contracts.TabIndex = 84;
+            this.data_contracts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_contracts_CellContentClick);
             // 
             // id
             // 

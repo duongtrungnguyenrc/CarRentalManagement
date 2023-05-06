@@ -27,6 +27,7 @@ namespace GUI
                 List<string> data = (List<string>) respond.getData();
                 Main form = new Main(data[0], data[1], data[2]);
                 clearForm();
+                this.Hide();
                 form.ShowDialog();
             }
             else

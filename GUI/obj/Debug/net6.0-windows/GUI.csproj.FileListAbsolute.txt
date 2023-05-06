@@ -35,7 +35,6 @@ C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\ru
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\obj\Debug\net6.0-windows\GUI.Properties.Resources.resources
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\obj\Debug\net6.0-windows\GUI.ManageContracts.resources
-C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\obj\Debug\net6.0-windows\GUI.HandleContract.resources
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\ClosedXML.dll
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\DocumentFormat.OpenXml.dll
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\ExcelNumberFormat.dll
@@ -43,3 +42,5 @@ C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\Ir
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\SixLabors.Fonts.dll
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\XLParser.dll
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\obj\Debug\net6.0-windows\GUI.Setting.resources
+C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\obj\Debug\net6.0-windows\GUI.createContract.resources
+C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\obj\Debug\net6.0-windows\GUI.HandleContract.resources

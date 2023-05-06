@@ -27,14 +27,14 @@ namespace GUI
        private void loadContract()
         {
             List<Contract> contracts = new List<Contract> ();
-            DataModel model = new DataModel ();
-            Respond res = model.GetAllContracts();
+            Respond res = ContractsModel.GetAllContracts();
             if(res.getStatus())
             {
                 contracts = (List<Contract>) res.getData();
                 foreach(Contract contract in contracts)
                 {
-                    data_contracts.Rows.Add(contract.contractId, contract.createDate, contract.startDate, contract.startTime, contract.endDate ,contract.endTime, contract.totalPrices, contract.paymentMethod, contract.status);
+                    int rowIndex = data_contracts.Rows.Add(contract.contractId, contract.createDate, contract.startDate, contract.startTime, contract.endDate ,contract.endTime, contract.totalPrices, contract.paymentMethod, contract.status);
+                    data_contracts.Rows[rowIndex].Tag = contract;
                 }
             }
             else
@@ -45,7 +45,7 @@ namespace GUI
 
         private void btn_add_Click_1(object sender, EventArgs e)
         {
-            HandleContract form = new HandleContract(this.userID);
+            CreateContract form = new CreateContract(this.userID);
             form.ShowDialog();
         }
 
@@ -96,6 +96,15 @@ namespace GUI
         private void btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void data_contracts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            Contract selectedRow = (Contract)data_contracts.Rows[e.RowIndex].Tag;
+
+            HandleContract form = new HandleContract(this.userID, selectedRow);
+            form.ShowDialog();
         }
     }
 }

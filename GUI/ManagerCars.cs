@@ -27,8 +27,7 @@ namespace GUI
 
         private void loadCars()
         {
-            DataModel model = new DataModel();
-            List<Car> cars = model.GetCars();
+            List<Car> cars = CarsModel.GetCars();
             data_cars.RowTemplate.Height = 200; // Đặt chiều cao dòng là 200 pixel
 
             foreach (Car car in cars)
@@ -179,8 +178,7 @@ namespace GUI
             Car car = new Car("", txt_name.Text, imgData, carPrice, carYear, numberOfKm, double.Parse(txt_hour_rent.Text),
                               double.Parse(txt_day_rent.Text), depositPrice, cb_engine.Text, numberOfSeats);
 
-            DataModel model = new DataModel();
-            Respond res = model.InserCar(car);
+            Respond res = CarsModel.InserCar(car);
             if (res.getStatus())
             {
                 MessageBox.Show("Successfully added new car!");
@@ -245,8 +243,7 @@ namespace GUI
             Car car = new Car(txt_id.Text, txt_name.Text, imgData, carPrice, carYear, numberOfKm, double.Parse(txt_hour_rent.Text),
                               double.Parse(txt_day_rent.Text), depositPrice, cb_engine.Text, numberOfSeats);
 
-            DataModel model = new DataModel();
-            Respond res = model.UpdateCar(car);
+            Respond res = CarsModel.UpdateCar(car);
             if (res.getStatus())
             {
                 MessageBox.Show("Successfully update car!");
@@ -262,8 +259,7 @@ namespace GUI
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            DataModel model = new DataModel();
-            Respond res = model.DeleteCar(txt_id.Text);
+            Respond res = CarsModel.DeleteCar(txt_id.Text);
             if (res.getStatus())
             {
                 MessageBox.Show("Successfully delete new car!");

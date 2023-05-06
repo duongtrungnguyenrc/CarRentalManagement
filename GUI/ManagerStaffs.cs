@@ -18,8 +18,12 @@ namespace GUI
         public ManagerStaffs()
         {
             InitializeComponent();
-            DataModel model = new DataModel();
-            List<SystemUser> users = model.GetStaffs();
+            LoadStaffs();
+        }
+
+        private void LoadStaffs()
+        {
+            List<SystemUser> users = UserModel.GetUsers();
             foreach (SystemUser user in users)
             {
                 data_staffs.Rows.Add(user.id, user.name, user.birth, user.gender, user.phone, user.address, user.shift, user.identifier, user.coefficientsSalary);
@@ -34,7 +38,7 @@ namespace GUI
         private void data_staffs_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             btn_add.Enabled= false;
-            btn_edit.Enabled = true;
+            btn_update.Enabled = true;
             btn_delete.Enabled = true;
             DataGridViewRow row = data_staffs.Rows[e.RowIndex];
             txt_name.Text = row.Cells["name"].Value.ToString();
@@ -49,37 +53,6 @@ namespace GUI
             this.curr_id = row.Cells["id"].Value.ToString();
         }
 
-        private void btn_delete_Click(object sender, EventArgs e)
-        {
-            DataModel model = new DataModel();
-            Respond respond = model.DeleteStaff(this.curr_id);
-            if(respond.getStatus())
-            {
-                MessageBox.Show(respond.getDescription(), "Success!");
-            }
-            else
-            {
-                MessageBox.Show(respond.getDescription(), "Fail!");
-
-            }
-            this.curr_id = "";
-        }
-
-        private void btn_edit_Click(object sender, EventArgs e)
-        {
-            SystemUser editStaff = new SystemUser(curr_id, txt_name.Text, txt_birth.Value, cb_gender.Text,
-               txt_phone.Text, txt_address.Text, txt_identity.Text, txt_shift.Text,double.Parse(txt_coefficients_salary.Text));
-            DataModel model = new DataModel();
-            Respond res = model.UpdateStaff(editStaff);
-            data_staffs.Refresh();
-            MessageBox.Show($"Default granted account: {txt_identity.Text}\nPassword: {txt_phone.Text}", res.getDescription());
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_add_Click_1(object sender, EventArgs e)
         {
             foreach (Control control in this.Controls)
@@ -92,7 +65,7 @@ namespace GUI
                         return;
 
                     }
-                }
+                } 
                 else if (control is ComboBox comboBox)
                 {
                     if (string.IsNullOrEmpty(comboBox.Text))
@@ -105,15 +78,49 @@ namespace GUI
 
             SystemUser newStaff = new SystemUser("", txt_name.Text, txt_birth.Value, cb_gender.Text,
                 txt_phone.Text, txt_address.Text, txt_identity.Text, txt_shift.Text, double.Parse(txt_coefficients_salary.Text));
-            DataModel model = new DataModel();
-            Respond res = model.InsertStaff(newStaff);
-            data_staffs.Refresh();
-            MessageBox.Show($"Default granted account: {txt_identity.Text}\nPassword: {txt_phone.Text}", res.getDescription());
+            Respond res = UserModel.CreateUser(newStaff);
+            if(res.getStatus())
+            {
+                data_staffs.Rows.Clear();
+                LoadStaffs();
+                MessageBox.Show($"Default granted account: {txt_identity.Text}\nPassword: {txt_phone.Text}", res.getDescription());
+            }
+            else
+            {
+                MessageBox.Show(res.getDescription(), "ERROR");
+            }
         }
 
-        private void txt_address_TextChanged(object sender, EventArgs e)
+        private void btn_update_Click(object sender, EventArgs e)
         {
+            SystemUser updatedStaff = new SystemUser(curr_id, txt_name.Text, txt_birth.Value, cb_gender.Text,
+               txt_phone.Text, txt_address.Text, txt_identity.Text, txt_shift.Text, double.Parse(txt_coefficients_salary.Text));
+            Respond res = UserModel.UpdateUser(updatedStaff);
+            if (res.getStatus())
+            {
+                data_staffs.Rows.Clear();
+                LoadStaffs();
+                MessageBox.Show($"Successfully to update {txt_name.Text}");
+            }
+            else
+            {
+                MessageBox.Show(res.getDescription(), "ERROR");
+            }
+        }
 
+        private void btn_delete_Click_1(object sender, EventArgs e)
+        {
+            Respond respond = UserModel.DeleteUser(this.curr_id);
+            if (respond.getStatus())
+            {
+                MessageBox.Show(respond.getDescription(), "Successfully to remove user!");
+            }
+            else
+            {
+                MessageBox.Show(respond.getDescription(), "Failed to remove user!");
+
+            }
+            this.curr_id = "";
         }
     }
 }
