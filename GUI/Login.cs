@@ -21,22 +21,21 @@ namespace GUI
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            Authentication authOBJ = new Authentication(txt_user.Text, txt_password.Text);
-            Respond respond = authOBJ.LoginAuth();
-            if (respond.getStatus()) {
-                List<string> data = (List<string>) respond.getData();
+            Respond res = Authentication.LoginAuth(txt_user.Text, txt_password.Text);
+            if (res.getStatus()) {
+                List<string> data = (List<string>) res.getData();
                 Main form = new Main(data[0], data[1], data[2]);
-                clearForm();
+                ClearForm();
                 this.Hide();
-                form.ShowDialog();
+                form.ShowDialog(this);
             }
             else
             {
-                MessageBox.Show((string)respond.getDescription());
+                MessageBox.Show((string)res.getDescription());
             }
         }
 
-        private void clearForm()
+        private void ClearForm()
         {
             txt_password.Text = "";
         }

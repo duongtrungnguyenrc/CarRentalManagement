@@ -29,28 +29,46 @@ namespace GUI
         private void nav_cars_Click(object sender, EventArgs e)
         {
             ManagerCars form = new ManagerCars();
-            form.ShowDialog();
+            this.Hide();
+            form.ShowDialog(this);
         }
 
         private void nav_staffs_Click(object sender, EventArgs e)
         {
             ManagerStaffs form = new ManagerStaffs();
-            form.ShowDialog();
+            this.Hide();
+            form.ShowDialog(this);
         }
         private void nav_ManageContracts_Click(object sender, EventArgs e)
         {
             ManageContracts form = new ManageContracts(this.userID);
-            form.ShowDialog();
+            this.Hide();
+            form.ShowDialog(this);
         }
 
         private void btn_log_out_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (this.Owner != null)
+            {
+                this.Owner.Show();
+            }
         }
 
         private void nav_setting_Click(object sender, EventArgs e)
         {
             Setting form = new Setting(this.userID, this.role);
+            this.Hide();
+            form.ShowDialog(this);
+        }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           Application.Exit();
+        }
+
+        private void nav_new_contract_Click(object sender, EventArgs e)
+        {
+            CreateContract form = new CreateContract(this.userID);
             form.ShowDialog();
         }
     }

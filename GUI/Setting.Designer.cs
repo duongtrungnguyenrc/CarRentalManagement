@@ -80,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.data_sales)).BeginInit();
             this.gb_salary.SuspendLayout();
             this.SuspendLayout();
+            this.FormClosed += Setting_FormClosed;
             // 
             // groupBox2
             // 
@@ -696,6 +697,7 @@
             this.ResumeLayout(false);
 
         }
+
 
         #endregion
 

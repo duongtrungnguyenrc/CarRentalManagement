@@ -1,4 +1,6 @@
-﻿namespace GUI
+﻿using System.Windows.Forms;
+
+namespace GUI
 {
     partial class ManagerCars
     {
@@ -45,6 +47,7 @@
             this.btn_browser_image = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.gb_data_form = new System.Windows.Forms.GroupBox();
+            this.btn_export = new System.Windows.Forms.Button();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.btn_edit = new System.Windows.Forms.Button();
             this.txt_km = new System.Windows.Forms.TextBox();
@@ -70,12 +73,12 @@
             this.RentByDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.depositPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numberOfSeats = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_export = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_car)).BeginInit();
             this.gb_data_form.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_cars)).BeginInit();
             this.SuspendLayout();
+            this.FormClosed += ManagerCars_FormClosed;
             // 
             // panel1
             // 
@@ -296,6 +299,20 @@
             this.gb_data_form.TabStop = false;
             this.gb_data_form.Text = "Data form";
             // 
+            // btn_export
+            // 
+            this.btn_export.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_export.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_export.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_export.Location = new System.Drawing.Point(2050, 336);
+            this.btn_export.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.btn_export.Name = "btn_export";
+            this.btn_export.Size = new System.Drawing.Size(165, 66);
+            this.btn_export.TabIndex = 71;
+            this.btn_export.Text = "Export";
+            this.btn_export.UseVisualStyleBackColor = false;
+            this.btn_export.Click += new System.EventHandler(this.btn_export_Click);
+            // 
             // txt_id
             // 
             this.txt_id.Enabled = false;
@@ -316,7 +333,7 @@
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(165, 69);
             this.btn_edit.TabIndex = 69;
-            this.btn_edit.Text = "Edit";
+            this.btn_edit.Text = "Update";
             this.btn_edit.UseVisualStyleBackColor = false;
             this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
@@ -370,7 +387,7 @@
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(165, 69);
             this.btn_save.TabIndex = 54;
-            this.btn_save.Text = "Save";
+            this.btn_save.Text = "Add";
             this.btn_save.UseVisualStyleBackColor = false;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
@@ -542,20 +559,6 @@
             this.numberOfSeats.Name = "numberOfSeats";
             this.numberOfSeats.Width = 200;
             // 
-            // btn_export
-            // 
-            this.btn_export.BackColor = System.Drawing.Color.SteelBlue;
-            this.btn_export.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_export.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_export.Location = new System.Drawing.Point(2050, 336);
-            this.btn_export.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.btn_export.Name = "btn_export";
-            this.btn_export.Size = new System.Drawing.Size(165, 66);
-            this.btn_export.TabIndex = 71;
-            this.btn_export.Text = "Export";
-            this.btn_export.UseVisualStyleBackColor = false;
-            this.btn_export.Click += new System.EventHandler(this.btn_export_Click);
-            // 
             // ManagerCars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
@@ -569,7 +572,6 @@
             this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.Name = "ManagerCars";
             this.Text = " ";
-            this.Load += new System.EventHandler(this.ManagerCars_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_car)).EndInit();

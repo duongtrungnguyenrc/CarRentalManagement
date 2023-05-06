@@ -40,7 +40,7 @@ namespace BLL
         }
         public static Respond getCusomerById(string id)
         {
-            string query = "SELECT customer_id, name, birth, phone, gender, address, identifier, driver_id FROM Customer WHERE id=@id";
+            string query = "SELECT customer_id, name, birth, phone, gender, address, identifier, driver_id FROM Customer WHERE customer_id=@id";
 
             using(SqlCommand command = new SqlCommand(query, Connection.GetConnection()))
             {

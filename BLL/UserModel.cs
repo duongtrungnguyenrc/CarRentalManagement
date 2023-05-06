@@ -151,7 +151,7 @@ namespace BLL
             }
         }
 
-        public static Respond updateAccount(SystemAccount account)
+        public static Respond UpdateAccount(SystemAccount account)
         {
             string query = "UPDATE SystemAccount SET user_name=@user_name, password=@password" +
                 " WHERE user_id=@user_id";
@@ -181,7 +181,7 @@ namespace BLL
             }
         }
 
-        public static Respond getBaseSalary()
+        public static Respond GetBaseSalary()
         {
             string query = "SELECT TOP 1 * FROM Salary ORDER BY update_time DESC";
 

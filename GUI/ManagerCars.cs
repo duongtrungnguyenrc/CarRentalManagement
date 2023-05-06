@@ -28,11 +28,11 @@ namespace GUI
         private void loadCars()
         {
             List<Car> cars = CarsModel.GetCars();
-            data_cars.RowTemplate.Height = 200; // Đặt chiều cao dòng là 200 pixel
+            data_cars.RowTemplate.Height = 200; // set image height is 200 pixel
 
             foreach (Car car in cars)
             {
-                // Đọc dữ liệu ảnh từ byte[] và chuyển đổi sang Image
+                // Read image data from byte[] and convert it to Image
                 Image image = null;
                 if (car.imgData != null && car.imgData.Length > 0)
                 {
@@ -42,36 +42,36 @@ namespace GUI
                     }
                 }
 
-                // Thêm dữ liệu vào ô cột ảnh
+                // Add data to the image column cell
                 int rowIndex = data_cars.Rows.Add("", car.id, car.name, car.engineType, car.year, car.price, car.numberOfKm, car.renByTime, car.rentByDate, car.depositPrice, car.numberOfSeats);
                 DataGridViewCell cell = data_cars.Rows[rowIndex].Cells["image"];
                 cell.Value = image;
-                // Lấy cột ảnh
+
+                // Get the image column
                 DataGridViewImageColumn imgCol = (DataGridViewImageColumn)data_cars.Columns["image"];
 
-                // Đặt kích thước ảnh
-                imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom; // Đặt tỷ lệ thu phóng ảnh cho phù hợp với kích thước ô
+                // Set the image layout
+                imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom; // Set the image zoom level to fit the cell size
 
-                // Đặt các thuộc tính hiển thị khác
-                imgCol.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Căn giữa ảnh trong ô
-                imgCol.DefaultCellStyle.NullValue = null; // Hiển thị ảnh mặc định nếu giá trị ô là null
-
+                // Set other display properties
+                imgCol.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Center-align the image in the cell
+                imgCol.DefaultCellStyle.NullValue = null; // Display a default image if the cell value is null
             }
+
         }
 
 
         private void btn_browser_image_Click(object sender, EventArgs e)
         {
-            // Khởi tạo đối tượng OpenFileDialog để cho phép người dùng chọn file
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image Files (*.jpg; *.png; *.bmp)|*.jpg; *.png; *.bmp";
-
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                // Lấy đường dẫn của file được chọn
+                // Get the selected file path
                 string filePath = openFileDialog.FileName;
                 Image image = Image.FromFile(filePath);
-                // Gán ảnh cho PictureBox
+
+                // Assign the image to the PictureBox
                 img_car.SizeMode = PictureBoxSizeMode.CenterImage;
                 img_car.Image = image;
                 img_car.ImageLocation = filePath;
@@ -129,7 +129,6 @@ namespace GUI
             txt_num_of_seats.Text = row.Cells["numberOfSeats"].Value.ToString();
             txt_id.Text = row.Cells["id"].Value.ToString();
             img_car.SizeMode = PictureBoxSizeMode.Zoom;
-
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -176,9 +175,9 @@ namespace GUI
             int numberOfSeats = 4;
 
             Car car = new Car("", txt_name.Text, imgData, carPrice, carYear, numberOfKm, double.Parse(txt_hour_rent.Text),
-                              double.Parse(txt_day_rent.Text), depositPrice, cb_engine.Text, numberOfSeats);
+                              double.Parse(txt_day_rent.Text), depositPrice, cb_engine.Text, numberOfSeats, "");
 
-            Respond res = CarsModel.InserCar(car);
+            Respond res = CarsModel.AddNewCar(car);
             if (res.getStatus())
             {
                 MessageBox.Show("Successfully added new car!");
@@ -190,11 +189,6 @@ namespace GUI
             {
                 MessageBox.Show("Failed to add new car!");
             }
-        }
-
-        private void ManagerCars_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
@@ -214,7 +208,7 @@ namespace GUI
             byte[] imgData = null;
             using (MemoryStream ms = new MemoryStream())
             {
-                img_car.Image.Save(ms, ImageFormat.Png);
+                img_car.Image.Save(ms, ImageFormat.Bmp);
                 imgData = ms.ToArray();
             }
 
@@ -241,7 +235,7 @@ namespace GUI
             int numberOfSeats = 4;
 
             Car car = new Car(txt_id.Text, txt_name.Text, imgData, carPrice, carYear, numberOfKm, double.Parse(txt_hour_rent.Text),
-                              double.Parse(txt_day_rent.Text), depositPrice, cb_engine.Text, numberOfSeats);
+                              double.Parse(txt_day_rent.Text), depositPrice, cb_engine.Text, numberOfSeats, "");
 
             Respond res = CarsModel.UpdateCar(car);
             if (res.getStatus())
@@ -278,7 +272,7 @@ namespace GUI
             var worksheet = workbook.Worksheets.Add("Sheet1");
 
             //Export header row
-            for (int i = 1; i <= data_cars.Columns.Count; i++)
+            for (int i = 2; i <= data_cars.Columns.Count; i++)
             {
                 worksheet.Cell(1, i).Value = data_cars.Columns[i - 1].HeaderText;
             }
@@ -312,5 +306,13 @@ namespace GUI
                 MessageBox.Show("Export completed!");
             }
         }
+
+        private void ManagerCars_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.Owner != null)
+            {
+                this.Owner.Show();
+            }
+        }
     }
-    }
+}

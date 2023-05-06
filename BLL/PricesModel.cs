@@ -17,10 +17,10 @@ namespace BLL
             int days = duration.Days;
             double hours = duration.TotalHours - (days * 24);
 
-            return days * 24 + hours;
+            return Math.Round(days * 24 + hours);
         }
 
-        public static double calcPrices(double rentalPrice, double rentalTime)
+        public static double CalcPrices(double rentalPrice, double rentalTime)
         {
             return rentalTime * rentalPrice;
         }

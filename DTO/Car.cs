@@ -19,7 +19,9 @@ namespace DTO
         public double depositPrice { get; set; }
         public string engineType { get; set; }
         public int numberOfSeats { get; set; }
-        public Car(string id, string name, byte[] imgData, double price, DateTime year, double numberOfKm, double renByTime, double rentByDate, double depositPrice, string engineType, int numberOfSeats)
+
+        public string status { get; set; }
+        public Car(string id, string name, byte[] imgData, double price, DateTime year, double numberOfKm, double renByTime, double rentByDate, double depositPrice, string engineType, int numberOfSeats, string status)
         {
             this.id = id;
             this.name = name;
@@ -32,6 +34,7 @@ namespace DTO
             this.depositPrice = depositPrice;
             this.engineType = engineType;
             this.numberOfSeats = numberOfSeats;
+            this.status = status;
         }
         public Car(string id)
         {

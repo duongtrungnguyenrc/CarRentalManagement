@@ -26,7 +26,6 @@ C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\obj\Debug\net6.0-windows\GU
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\obj\Debug\net6.0-windows\GUI.ManagerCars.resources
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\obj\Debug\net6.0-windows\GUI.ManagerStaffs.resources
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\obj\Debug\net6.0-windows\GUI.ManagerUsers.resources
-C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\obj\Debug\net6.0-windows\GUI.Return.resources
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
@@ -43,4 +42,7 @@ C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\Si
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\XLParser.dll
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\obj\Debug\net6.0-windows\GUI.Setting.resources
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\obj\Debug\net6.0-windows\GUI.createContract.resources
-C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\obj\Debug\net6.0-windows\GUI.HandleContract.resources
+C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\obj\Debug\net6.0-windows\GUI.ViewContract.resources
+C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\itextsharp.dll
+C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\Microsoft.Office.Interop.Word.dll

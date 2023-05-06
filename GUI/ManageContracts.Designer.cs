@@ -31,8 +31,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_exit = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.data_contracts = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +48,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.data_contracts)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
+            this.FormClosed += ManageContracts_FormClosed;
             // 
             // panel1
             // 
@@ -79,7 +78,7 @@
             this.btn_exit.BackColor = System.Drawing.Color.SteelBlue;
             this.btn_exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_exit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_exit.Location = new System.Drawing.Point(1027, 69);
+            this.btn_exit.Location = new System.Drawing.Point(997, 67);
             this.btn_exit.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btn_exit.Name = "btn_exit";
             this.btn_exit.Size = new System.Drawing.Size(165, 89);
@@ -88,45 +87,19 @@
             this.btn_exit.UseVisualStyleBackColor = false;
             this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.SteelBlue;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(850, 69);
-            this.button3.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(165, 89);
-            this.button3.TabIndex = 72;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.SteelBlue;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(672, 69);
-            this.button2.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(165, 89);
-            this.button2.TabIndex = 71;
-            this.button2.Text = "Edit";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // btn_add
             // 
             this.btn_add.BackColor = System.Drawing.Color.SteelBlue;
             this.btn_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_add.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_add.Location = new System.Drawing.Point(494, 69);
+            this.btn_add.Location = new System.Drawing.Point(643, 67);
             this.btn_add.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(165, 89);
             this.btn_add.TabIndex = 69;
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = false;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click_1);
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // data_contracts
             // 
@@ -217,9 +190,7 @@
             // 
             this.groupBox1.Controls.Add(this.btn_export);
             this.groupBox1.Controls.Add(this.btn_add);
-            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.btn_exit);
-            this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Location = new System.Drawing.Point(30, 174);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1819, 200);
@@ -232,7 +203,7 @@
             this.btn_export.BackColor = System.Drawing.Color.SteelBlue;
             this.btn_export.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_export.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_export.Location = new System.Drawing.Point(1204, 69);
+            this.btn_export.Location = new System.Drawing.Point(820, 67);
             this.btn_export.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.btn_export.Name = "btn_export";
             this.btn_export.Size = new System.Drawing.Size(165, 89);
@@ -267,8 +238,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_exit;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.DataGridView data_contracts;
         private GroupBox groupBox1;

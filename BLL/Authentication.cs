@@ -9,35 +9,24 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class Authentication
+    public static class Authentication
     {
-        private string username { get; set; }
-        private string password { get; set; }
-
-        private SqlConnection connection { get; set; }
-        public Authentication() { }
-        public Authentication(string username, string password)
-        {
-            this.username = username;
-            this.password = password;
-            this.connection = Connection.GetConnection();
-        }
-        public Respond LoginAuth()
+        public static Respond LoginAuth(string userName, string password)
         {
             SecurityUtils obj = new SecurityUtils();
             string query = "SELECT SystemAccount.password, SystemAccount.role, SystemUser.name, SystemUser.user_id " +
                 "FROM SystemAccount JOIN SystemUser ON SystemAccount.user_id = SystemUser.user_id " +
                 "WHERE SystemAccount.user_name = @user_name";
 
-            using (SqlCommand command = new SqlCommand(query, this.connection))
+            using (SqlCommand command = new SqlCommand(query, Connection.GetConnection()))
             {
-                command.Parameters.AddWithValue("@user_name", username);
+                command.Parameters.AddWithValue("@user_name", userName);
 
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    string password = reader.GetString(0);
+                    string realPassword = reader.GetString(0);
                     string role = reader.GetString(1);
                     string name = reader.GetString(2);
                     string id = reader.GetGuid(3).ToString();
@@ -45,7 +34,7 @@ namespace BLL
                     res.Add(role);
                     res.Add(id);
                     res.Add(name);
-                    if (password == this.password) // temporary
+                    if (realPassword == password) // temporary
                     {
                         return new Respond(true, res, "Login Successfully!");
                     }

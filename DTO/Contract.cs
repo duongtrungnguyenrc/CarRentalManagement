@@ -10,7 +10,7 @@ namespace DTO
     {
         public string contractId { get; set; }
 
-        public string staffId { get; set; }
+        public string userId { get; set; }
         public Customer customer { get; set; }
         public Car car { get; set; }
         public DateTime startDate { get; set; }
@@ -25,7 +25,7 @@ namespace DTO
         public Contract(string contractId, string staffId, Customer customer, Car car, DateTime startDate, DateTime endDate, TimeSpan startTime, TimeSpan endTime, DateTime createDate, double totalPrices, string paymentMethod, string status)
         {
             this.contractId = contractId;
-            this.staffId = staffId;
+            this.userId = staffId;
             this.customer = customer;
             this.car = car;
             this.startDate = startDate;

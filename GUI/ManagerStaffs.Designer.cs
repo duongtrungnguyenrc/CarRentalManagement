@@ -50,7 +50,6 @@
             this.salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txt_shift = new System.Windows.Forms.TextBox();
             this.txt_coefficients_salary = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.cb_gender = new System.Windows.Forms.ComboBox();
@@ -62,11 +61,20 @@
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cb_shift = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_staffs)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
+            this.FormClosed += ManagerStaffs_FormClosed;
+            void ManagerStaffs_FormClosed(object sender, FormClosedEventArgs e)
+            {
+                if (this.Owner != null)
+                {
+                    this.Owner.Show();
+                }
+            }
             // 
             // panel1
             // 
@@ -292,17 +300,6 @@
             this.label3.TabIndex = 63;
             this.label3.Text = "Shift";
             // 
-            // txt_shift
-            // 
-            this.txt_shift.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_shift.ForeColor = System.Drawing.Color.Black;
-            this.txt_shift.Location = new System.Drawing.Point(695, 259);
-            this.txt_shift.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.txt_shift.Name = "txt_shift";
-            this.txt_shift.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txt_shift.Size = new System.Drawing.Size(377, 44);
-            this.txt_shift.TabIndex = 64;
-            // 
             // txt_coefficients_salary
             // 
             this.txt_coefficients_salary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -362,6 +359,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cb_shift);
             this.groupBox1.Controls.Add(this.txt_name);
             this.groupBox1.Controls.Add(this.txt_address);
             this.groupBox1.Controls.Add(this.label4);
@@ -369,7 +367,6 @@
             this.groupBox1.Controls.Add(this.txt_birth);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txt_shift);
             this.groupBox1.Controls.Add(this.cb_gender);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label6);
@@ -440,7 +437,7 @@
             this.btn_add.TabIndex = 71;
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = false;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click_1);
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // groupBox2
             // 
@@ -454,6 +451,21 @@
             this.groupBox2.TabIndex = 75;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Control";
+            // 
+            // cb_shift
+            // 
+            this.cb_shift.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cb_shift.ForeColor = System.Drawing.Color.Black;
+            this.cb_shift.FormattingEnabled = true;
+            this.cb_shift.Items.AddRange(new object[] {
+            "Morning",
+            "Afternoon",
+            "Night"});
+            this.cb_shift.Location = new System.Drawing.Point(695, 255);
+            this.cb_shift.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cb_shift.Name = "cb_shift";
+            this.cb_shift.Size = new System.Drawing.Size(377, 45);
+            this.cb_shift.TabIndex = 70;
             // 
             // ManagerStaffs
             // 
@@ -469,7 +481,6 @@
             this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.Name = "ManagerStaffs";
             this.Text = "Staffs";
-            this.Load += new System.EventHandler(this.ManagerStaffs_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_staffs)).EndInit();
@@ -495,7 +506,6 @@
         private System.Windows.Forms.DataGridView data_staffs;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txt_shift;
         private System.Windows.Forms.TextBox txt_coefficients_salary;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cb_gender;
@@ -517,5 +527,6 @@
         private DataGridViewTextBoxColumn identifier;
         private DataGridViewTextBoxColumn salary;
         private Button btn_update;
+        private ComboBox cb_shift;
     }
 }

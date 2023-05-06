@@ -30,11 +30,6 @@ namespace GUI
             }
         }
 
-        private void ManagerStaffs_Load(object sender, EventArgs e)
-        {
-           
-        }
-
         private void data_staffs_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             btn_add.Enabled= false;
@@ -46,14 +41,25 @@ namespace GUI
             cb_gender.Text = row.Cells["gender"].Value.ToString();
             txt_phone.Text = row.Cells["phone"].Value.ToString();
             txt_address.Text = row.Cells["address"].Value.ToString();
-            txt_shift.Text = row.Cells["shift"].Value.ToString();
+            cb_shift.Text = row.Cells["shift"].Value.ToString();
             txt_identity.Text = row.Cells["identifier"].Value.ToString();
             txt_coefficients_salary.Text = row.Cells["salary"].Value.ToString();
 
             this.curr_id = row.Cells["id"].Value.ToString();
         }
 
-        private void btn_add_Click_1(object sender, EventArgs e)
+        private void ClearForm()
+        {
+            foreach (System.Windows.Forms.Control control in this.Controls)
+            {
+                if (!(control is Button))
+                {
+                    control.Text = "";
+                }
+            }
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
         {
             foreach (Control control in this.Controls)
             {
@@ -76,8 +82,10 @@ namespace GUI
                 }
             }
 
+
+
             SystemUser newStaff = new SystemUser("", txt_name.Text, txt_birth.Value, cb_gender.Text,
-                txt_phone.Text, txt_address.Text, txt_identity.Text, txt_shift.Text, double.Parse(txt_coefficients_salary.Text));
+                txt_phone.Text, txt_address.Text, txt_identity.Text, cb_shift.Text, double.Parse(txt_coefficients_salary.Text));
             Respond res = UserModel.CreateUser(newStaff);
             if(res.getStatus())
             {
@@ -94,7 +102,7 @@ namespace GUI
         private void btn_update_Click(object sender, EventArgs e)
         {
             SystemUser updatedStaff = new SystemUser(curr_id, txt_name.Text, txt_birth.Value, cb_gender.Text,
-               txt_phone.Text, txt_address.Text, txt_identity.Text, txt_shift.Text, double.Parse(txt_coefficients_salary.Text));
+               txt_phone.Text, txt_address.Text, txt_identity.Text, cb_shift.Text, double.Parse(txt_coefficients_salary.Text));
             Respond res = UserModel.UpdateUser(updatedStaff);
             if (res.getStatus())
             {
@@ -113,6 +121,8 @@ namespace GUI
             Respond respond = UserModel.DeleteUser(this.curr_id);
             if (respond.getStatus())
             {
+                data_staffs.Rows.Clear();
+                LoadStaffs();
                 MessageBox.Show(respond.getDescription(), "Successfully to remove user!");
             }
             else

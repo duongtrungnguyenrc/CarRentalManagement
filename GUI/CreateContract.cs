@@ -9,7 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Diagnostics;
 
 namespace GUI
 {
@@ -34,14 +37,14 @@ namespace GUI
 
             List<Car> cars = CarsModel.GetCars();
 
-            Image image = null;
+            System.Drawing.Image image = null;
             foreach (Car car in cars)
             {
                 if (car.imgData != null && car.imgData.Length > 0)
                 {
                     using (MemoryStream ms = new MemoryStream(car.imgData))
                     {
-                        image = Image.FromStream(ms);
+                        image = System.Drawing.Image.FromStream(ms);
                     }
                 }
                 imageList.Images.Add(car.id, image.GetThumbnailImage(300, 300, null, IntPtr.Zero));
@@ -88,10 +91,33 @@ namespace GUI
             double rentalTime = PricesModel.GetRentTime((DateTime)txt_start_date.Value, (DateTime)txt_end_date.Value, (DateTime)txt_start_time.Value, (DateTime)txt_end_time.Value);
             double rentalPrice = rentalTime >= 12 ? car.rentByDate : car.renByTime;
 
-            Contract contract = new Contract("", this.userID ,customer, car, (DateTime)txt_start_date.Value, (DateTime)txt_end_date.Value, txt_start_time.Value.TimeOfDay, txt_end_time.Value.TimeOfDay, new DateTime(), PricesModel.calcPrices(rentalPrice, rentalTime), "", ""); 
+            Contract contract = new Contract("", this.userID ,customer, car, (DateTime)txt_start_date.Value, (DateTime)txt_end_date.Value, txt_start_time.Value.TimeOfDay, txt_end_time.Value.TimeOfDay, new DateTime(), PricesModel.CalcPrices(rentalPrice, rentalTime), "", ""); 
             
             res = ContractsModel.CreateContract(contract);
+            if(res.getStatus())
+            {
+                ExportContract();
+            }
             MessageBox.Show(res.getDescription());
+        }
+
+
+        private void ExportContract()
+        {
+            // Create a new PDF document
+            Document document = new Document();
+            string filePath = $"Contract.pdf";
+            // Set up the PDF writer to write the document to a file
+            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(filePath, FileMode.Create));
+
+            // Open the document
+            document.Open();
+
+            // Add content to the document
+            document.Add(new Paragraph("Hello, World!"));
+
+            // Close the document
+            document.Close();
         }
 
     }

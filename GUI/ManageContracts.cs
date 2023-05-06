@@ -43,10 +43,10 @@ namespace GUI
             }
         }
 
-        private void btn_add_Click_1(object sender, EventArgs e)
+        private void btn_add_Click(object sender, EventArgs e)
         {
             CreateContract form = new CreateContract(this.userID);
-            form.ShowDialog();
+            form.ShowDialog(this);
         }
 
         private void btn_export_Click(object sender, EventArgs e)
@@ -103,8 +103,16 @@ namespace GUI
 
             Contract selectedRow = (Contract)data_contracts.Rows[e.RowIndex].Tag;
 
-            HandleContract form = new HandleContract(this.userID, selectedRow);
+            ViewContract form = new ViewContract(this.userID, selectedRow);
             form.ShowDialog();
+        }
+
+        private void ManageContracts_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(this.Owner!= null)
+            {
+                this.Owner.Show();
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class HandleContract
+    partial class ViewContract
     {
         /// <summary>
         /// Required designer variable.
@@ -45,46 +45,46 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.car_chosing = new System.Windows.Forms.PictureBox();
+            this.gb_car = new System.Windows.Forms.GroupBox();
+            this.img_car = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_end_time = new System.Windows.Forms.TextBox();
+            this.txt_start_time = new System.Windows.Forms.MaskedTextBox();
+            this.txt_pre_id = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txt_end_time = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.txt_end_date = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
-            this.txt_start_time = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.txt_start_date = new System.Windows.Forms.DateTimePicker();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cb_pre_payment_method = new System.Windows.Forms.ComboBox();
+            this.txt_pre_status = new System.Windows.Forms.TextBox();
+            this.txt_pre_prices = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.gb_post_contract = new System.Windows.Forms.GroupBox();
+            this.cb_car_status = new System.Windows.Forms.ComboBox();
+            this.lb_car_status = new System.Windows.Forms.Label();
             this.btn_exit = new System.Windows.Forms.Button();
             this.btn_create_post_contract = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txt_note = new System.Windows.Forms.RichTextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txt_extra_charge = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.cb_post_payment_method = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txt_post_payment_method = new System.Windows.Forms.TextBox();
+            this.txt_post_id = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.car_chosing)).BeginInit();
+            this.gb_car.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.img_car)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.gb_post_contract.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -324,41 +324,41 @@
             this.label1.Location = new System.Drawing.Point(868, 32);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(410, 63);
+            this.label1.Size = new System.Drawing.Size(364, 63);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Create contract";
+            this.label1.Text = "View contract";
             // 
-            // groupBox4
+            // gb_car
             // 
-            this.groupBox4.Controls.Add(this.car_chosing);
-            this.groupBox4.Location = new System.Drawing.Point(1226, 129);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(392, 351);
-            this.groupBox4.TabIndex = 77;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Car";
+            this.gb_car.Controls.Add(this.img_car);
+            this.gb_car.Location = new System.Drawing.Point(1226, 129);
+            this.gb_car.Name = "gb_car";
+            this.gb_car.Size = new System.Drawing.Size(392, 351);
+            this.gb_car.TabIndex = 77;
+            this.gb_car.TabStop = false;
+            this.gb_car.Text = "Car";
             // 
-            // car_chosing
+            // img_car
             // 
-            this.car_chosing.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.img_car.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.car_chosing.Location = new System.Drawing.Point(32, 53);
-            this.car_chosing.Name = "car_chosing";
-            this.car_chosing.Size = new System.Drawing.Size(332, 267);
-            this.car_chosing.TabIndex = 72;
-            this.car_chosing.TabStop = false;
+            this.img_car.Location = new System.Drawing.Point(32, 44);
+            this.img_car.Name = "img_car";
+            this.img_car.Size = new System.Drawing.Size(332, 267);
+            this.img_car.TabIndex = 72;
+            this.img_car.TabStop = false;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.txt_end_time);
+            this.groupBox2.Controls.Add(this.txt_start_time);
+            this.groupBox2.Controls.Add(this.txt_pre_id);
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.txt_end_time);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.txt_end_date);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.txt_start_time);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.txt_start_date);
             this.groupBox2.Location = new System.Drawing.Point(1645, 129);
@@ -368,18 +368,38 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Rental infomations";
             // 
-            // textBox3
+            // txt_end_time
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txt_end_time.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Enabled = false;
-            this.textBox3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox3.Location = new System.Drawing.Point(178, 358);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(246, 39);
-            this.textBox3.TabIndex = 99;
+            this.txt_end_time.Enabled = false;
+            this.txt_end_time.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txt_end_time.Location = new System.Drawing.Point(163, 287);
+            this.txt_end_time.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txt_end_time.Name = "txt_end_time";
+            this.txt_end_time.Size = new System.Drawing.Size(261, 39);
+            this.txt_end_time.TabIndex = 102;
+            // 
+            // txt_start_time
+            // 
+            this.txt_start_time.Location = new System.Drawing.Point(163, 154);
+            this.txt_start_time.Name = "txt_start_time";
+            this.txt_start_time.Size = new System.Drawing.Size(261, 39);
+            this.txt_start_time.TabIndex = 101;
+            // 
+            // txt_pre_id
+            // 
+            this.txt_pre_id.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_pre_id.Enabled = false;
+            this.txt_pre_id.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txt_pre_id.Location = new System.Drawing.Point(163, 358);
+            this.txt_pre_id.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txt_pre_id.Name = "txt_pre_id";
+            this.txt_pre_id.Size = new System.Drawing.Size(261, 39);
+            this.txt_pre_id.TabIndex = 99;
             // 
             // label20
             // 
@@ -392,9 +412,9 @@
             this.label20.Location = new System.Drawing.Point(14, 361);
             this.label20.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(161, 31);
+            this.label20.Size = new System.Drawing.Size(126, 31);
             this.label20.TabIndex = 100;
-            this.label20.Text = "Contract ID:";
+            this.label20.Text = "Contract:";
             // 
             // label11
             // 
@@ -404,23 +424,12 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(13, 288);
+            this.label11.Location = new System.Drawing.Point(13, 291);
             this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(128, 31);
             this.label11.TabIndex = 98;
             this.label11.Text = "End time:";
-            // 
-            // txt_end_time
-            // 
-            this.txt_end_time.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_end_time.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.txt_end_time.Location = new System.Drawing.Point(163, 285);
-            this.txt_end_time.Name = "txt_end_time";
-            this.txt_end_time.Size = new System.Drawing.Size(261, 39);
-            this.txt_end_time.TabIndex = 11;
             // 
             // label12
             // 
@@ -463,17 +472,6 @@
             this.label10.TabIndex = 94;
             this.label10.Text = "Start time:";
             // 
-            // txt_start_time
-            // 
-            this.txt_start_time.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_start_time.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.txt_start_time.Location = new System.Drawing.Point(163, 154);
-            this.txt_start_time.Name = "txt_start_time";
-            this.txt_start_time.Size = new System.Drawing.Size(261, 39);
-            this.txt_start_time.TabIndex = 9;
-            // 
             // label9
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -502,9 +500,9 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.comboBox1);
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.cb_pre_payment_method);
+            this.groupBox3.Controls.Add(this.txt_pre_status);
+            this.groupBox3.Controls.Add(this.txt_pre_prices);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label6);
@@ -515,44 +513,44 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Control";
             // 
-            // comboBox1
+            // cb_pre_payment_method
             // 
-            this.comboBox1.AllowDrop = true;
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cb_pre_payment_method.AllowDrop = true;
+            this.cb_pre_payment_method.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cb_pre_payment_method.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_pre_payment_method.Enabled = false;
+            this.cb_pre_payment_method.FormattingEnabled = true;
+            this.cb_pre_payment_method.Items.AddRange(new object[] {
             "Banking",
             "Cast payment"});
-            this.comboBox1.Location = new System.Drawing.Point(272, 41);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(322, 40);
-            this.comboBox1.TabIndex = 98;
+            this.cb_pre_payment_method.Location = new System.Drawing.Point(272, 41);
+            this.cb_pre_payment_method.Name = "cb_pre_payment_method";
+            this.cb_pre_payment_method.Size = new System.Drawing.Size(322, 40);
+            this.cb_pre_payment_method.TabIndex = 98;
             // 
-            // textBox2
+            // txt_pre_status
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txt_pre_status.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(706, 41);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(357, 39);
-            this.textBox2.TabIndex = 93;
+            this.txt_pre_status.Enabled = false;
+            this.txt_pre_status.Location = new System.Drawing.Point(706, 41);
+            this.txt_pre_status.Name = "txt_pre_status";
+            this.txt_pre_status.Size = new System.Drawing.Size(357, 39);
+            this.txt_pre_status.TabIndex = 93;
             // 
-            // textBox1
+            // txt_pre_prices
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txt_pre_prices.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(1196, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(357, 39);
-            this.textBox1.TabIndex = 91;
+            this.txt_pre_prices.Enabled = false;
+            this.txt_pre_prices.Location = new System.Drawing.Point(1196, 40);
+            this.txt_pre_prices.Name = "txt_pre_prices";
+            this.txt_pre_prices.Size = new System.Drawing.Size(357, 39);
+            this.txt_pre_prices.TabIndex = 91;
             // 
             // label14
             // 
@@ -599,26 +597,57 @@
             this.label6.TabIndex = 88;
             this.label6.Text = "Payment method:";
             // 
-            // groupBox5
+            // gb_post_contract
             // 
-            this.groupBox5.Controls.Add(this.btn_exit);
-            this.groupBox5.Controls.Add(this.btn_create_post_contract);
-            this.groupBox5.Controls.Add(this.richTextBox1);
-            this.groupBox5.Controls.Add(this.label19);
-            this.groupBox5.Controls.Add(this.textBox5);
-            this.groupBox5.Controls.Add(this.label15);
-            this.groupBox5.Controls.Add(this.textBox4);
-            this.groupBox5.Controls.Add(this.cb_post_payment_method);
-            this.groupBox5.Controls.Add(this.label16);
-            this.groupBox5.Controls.Add(this.txt_post_payment_method);
-            this.groupBox5.Controls.Add(this.label17);
-            this.groupBox5.Controls.Add(this.label18);
-            this.groupBox5.Location = new System.Drawing.Point(25, 595);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(2063, 439);
-            this.groupBox5.TabIndex = 80;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Post contract";
+            this.gb_post_contract.Controls.Add(this.cb_car_status);
+            this.gb_post_contract.Controls.Add(this.lb_car_status);
+            this.gb_post_contract.Controls.Add(this.btn_exit);
+            this.gb_post_contract.Controls.Add(this.btn_create_post_contract);
+            this.gb_post_contract.Controls.Add(this.txt_note);
+            this.gb_post_contract.Controls.Add(this.label19);
+            this.gb_post_contract.Controls.Add(this.txt_extra_charge);
+            this.gb_post_contract.Controls.Add(this.label15);
+            this.gb_post_contract.Controls.Add(this.cb_post_payment_method);
+            this.gb_post_contract.Controls.Add(this.txt_post_id);
+            this.gb_post_contract.Controls.Add(this.label17);
+            this.gb_post_contract.Controls.Add(this.label18);
+            this.gb_post_contract.Location = new System.Drawing.Point(25, 595);
+            this.gb_post_contract.Name = "gb_post_contract";
+            this.gb_post_contract.Size = new System.Drawing.Size(2063, 439);
+            this.gb_post_contract.TabIndex = 80;
+            this.gb_post_contract.TabStop = false;
+            this.gb_post_contract.Text = "Post contract";
+            // 
+            // cb_car_status
+            // 
+            this.cb_car_status.AllowDrop = true;
+            this.cb_car_status.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_car_status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_car_status.FormattingEnabled = true;
+            this.cb_car_status.Items.AddRange(new object[] {
+            "Ready",
+            "Maintenance"});
+            this.cb_car_status.Location = new System.Drawing.Point(1332, 260);
+            this.cb_car_status.Name = "cb_car_status";
+            this.cb_car_status.Size = new System.Drawing.Size(589, 40);
+            this.cb_car_status.TabIndex = 108;
+            // 
+            // lb_car_status
+            // 
+            this.lb_car_status.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lb_car_status.AutoSize = true;
+            this.lb_car_status.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_car_status.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lb_car_status.Location = new System.Drawing.Point(1079, 263);
+            this.lb_car_status.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lb_car_status.Name = "lb_car_status";
+            this.lb_car_status.Size = new System.Drawing.Size(147, 31);
+            this.lb_car_status.TabIndex = 109;
+            this.lb_car_status.Text = "Car status:";
             // 
             // btn_exit
             // 
@@ -634,6 +663,7 @@
             this.btn_exit.TabIndex = 107;
             this.btn_exit.Text = "Exit";
             this.btn_exit.UseVisualStyleBackColor = false;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
             // btn_create_post_contract
             // 
@@ -649,19 +679,19 @@
             this.btn_create_post_contract.TabIndex = 106;
             this.btn_create_post_contract.Text = "Create post contract";
             this.btn_create_post_contract.UseVisualStyleBackColor = false;
+            this.btn_create_post_contract.Click += new System.EventHandler(this.btn_create_post_contract_Click);
             // 
-            // richTextBox1
+            // txt_note
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txt_note.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Enabled = false;
-            this.richTextBox1.Location = new System.Drawing.Point(1249, 101);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(672, 184);
-            this.richTextBox1.TabIndex = 104;
-            this.richTextBox1.Text = "";
+            this.txt_note.Location = new System.Drawing.Point(1249, 113);
+            this.txt_note.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_note.Name = "txt_note";
+            this.txt_note.Size = new System.Drawing.Size(672, 102);
+            this.txt_note.TabIndex = 104;
+            this.txt_note.Text = "";
             // 
             // label19
             // 
@@ -671,25 +701,24 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label19.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label19.Location = new System.Drawing.Point(1088, 104);
+            this.label19.Location = new System.Drawing.Point(1088, 116);
             this.label19.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(80, 31);
             this.label19.TabIndex = 105;
             this.label19.Text = "Note:";
             // 
-            // textBox5
+            // txt_extra_charge
             // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txt_extra_charge.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Enabled = false;
-            this.textBox5.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox5.Location = new System.Drawing.Point(344, 169);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(697, 39);
-            this.textBox5.TabIndex = 103;
+            this.txt_extra_charge.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txt_extra_charge.Location = new System.Drawing.Point(344, 181);
+            this.txt_extra_charge.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txt_extra_charge.Name = "txt_extra_charge";
+            this.txt_extra_charge.Size = new System.Drawing.Size(697, 39);
+            this.txt_extra_charge.TabIndex = 103;
             // 
             // label15
             // 
@@ -706,17 +735,6 @@
             this.label15.TabIndex = 102;
             this.label15.Text = "Extra charge:";
             // 
-            // textBox4
-            // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(344, 315);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(697, 39);
-            this.textBox4.TabIndex = 98;
-            // 
             // cb_post_payment_method
             // 
             this.cb_post_payment_method.AllowDrop = true;
@@ -724,43 +742,27 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cb_post_payment_method.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_post_payment_method.Enabled = false;
             this.cb_post_payment_method.FormattingEnabled = true;
             this.cb_post_payment_method.Items.AddRange(new object[] {
             "Banking",
             "Cast payment"});
-            this.cb_post_payment_method.Location = new System.Drawing.Point(344, 245);
+            this.cb_post_payment_method.Location = new System.Drawing.Point(344, 257);
             this.cb_post_payment_method.Name = "cb_post_payment_method";
             this.cb_post_payment_method.Size = new System.Drawing.Size(697, 40);
             this.cb_post_payment_method.TabIndex = 97;
             // 
-            // label16
+            // txt_post_id
             // 
-            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txt_post_id.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label16.Location = new System.Drawing.Point(91, 315);
-            this.label16.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(100, 31);
-            this.label16.TabIndex = 101;
-            this.label16.Text = "Status:";
-            // 
-            // txt_post_payment_method
-            // 
-            this.txt_post_payment_method.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_post_payment_method.Enabled = false;
-            this.txt_post_payment_method.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txt_post_payment_method.Location = new System.Drawing.Point(344, 101);
-            this.txt_post_payment_method.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.txt_post_payment_method.Name = "txt_post_payment_method";
-            this.txt_post_payment_method.Size = new System.Drawing.Size(697, 39);
-            this.txt_post_payment_method.TabIndex = 95;
+            this.txt_post_id.Enabled = false;
+            this.txt_post_id.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txt_post_id.Location = new System.Drawing.Point(344, 113);
+            this.txt_post_id.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txt_post_id.Name = "txt_post_id";
+            this.txt_post_id.Size = new System.Drawing.Size(697, 39);
+            this.txt_post_id.TabIndex = 95;
             // 
             // label17
             // 
@@ -792,33 +794,33 @@
             this.label18.TabIndex = 99;
             this.label18.Text = "ID:";
             // 
-            // HandleContract
+            // ViewContract
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(2114, 1057);
-            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.gb_post_contract);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.gb_car);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
-            this.Name = "HandleContract";
+            this.Name = "ViewContract";
             this.Text = "HandleContract";
             this.Load += new System.EventHandler(this.HandleContract_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.car_chosing)).EndInit();
+            this.gb_car.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.img_car)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.gb_post_contract.ResumeLayout(false);
+            this.gb_post_contract.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -841,39 +843,39 @@
         private Label label4;
         private Panel panel1;
         private Label label1;
-        private GroupBox groupBox4;
-        private PictureBox car_chosing;
+        private GroupBox gb_car;
+        private PictureBox img_car;
         private GroupBox groupBox2;
         private Label label11;
-        private DateTimePicker txt_end_time;
         private Label label12;
         private DateTimePicker txt_end_date;
         private Label label10;
-        private DateTimePicker txt_start_time;
         private Label label9;
         private DateTimePicker txt_start_date;
         private GroupBox groupBox3;
         private Label label8;
         private Label label6;
-        private TextBox textBox1;
+        private TextBox txt_pre_prices;
         private Label label14;
-        private GroupBox groupBox5;
-        private TextBox textBox2;
-        private ComboBox comboBox1;
-        private RichTextBox richTextBox1;
+        private GroupBox gb_post_contract;
+        private TextBox txt_pre_status;
+        private ComboBox cb_pre_payment_method;
+        private RichTextBox txt_note;
         private Label label19;
-        private TextBox textBox5;
+        private TextBox txt_extra_charge;
         private Label label15;
-        private TextBox textBox4;
         private ComboBox cb_post_payment_method;
-        private Label label16;
-        private TextBox txt_post_payment_method;
+        private TextBox txt_post_id;
         private Label label17;
         private Label label18;
         private DateTimePicker txt_birth;
-        private TextBox textBox3;
+        private TextBox txt_pre_id;
         private Label label20;
         private Button btn_exit;
         private Button btn_create_post_contract;
+        private TextBox txt_end_time;
+        private MaskedTextBox txt_start_time;
+        private ComboBox cb_car_status;
+        private Label lb_car_status;
     }
 }

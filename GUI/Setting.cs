@@ -70,7 +70,7 @@ namespace GUI
 
         private void LoadSalary()
         {
-            Respond res = UserModel.getBaseSalary();
+            Respond res = UserModel.GetBaseSalary();
             if (res.getStatus())
             {
                 BaseSalary baseSalary = (BaseSalary)res.getData();
@@ -166,7 +166,7 @@ namespace GUI
         private void btn_save_account_Click(object sender, EventArgs e)
         {
             SystemAccount account = new SystemAccount(txt_account_id.Text, txt_user_name.Text, txt_password.Text, cb_role.Text ,this.userID);
-            Respond res = UserModel.updateAccount(account);
+            Respond res = UserModel.UpdateAccount(account);
             if(res.getStatus())
             {
                 txt_password.UseSystemPasswordChar = true;
@@ -188,6 +188,14 @@ namespace GUI
             else
             {
                 txt_password.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void Setting_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(this.Owner!= null)
+            {
+                this.Owner.Show();
             }
         }
     }

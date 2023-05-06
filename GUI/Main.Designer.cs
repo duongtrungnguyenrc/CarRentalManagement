@@ -33,7 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.nav_cars = new System.Windows.Forms.Button();
             this.nav_staffs = new System.Windows.Forms.Button();
-            this.nav_customer = new System.Windows.Forms.Button();
+            this.nav_new_contract = new System.Windows.Forms.Button();
             this.nav_ManageContracts = new System.Windows.Forms.Button();
             this.btn_log_out = new System.Windows.Forms.Button();
             this.nav_setting = new System.Windows.Forms.Button();
@@ -46,6 +46,7 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            this.FormClosed += Main_FormClosed;
             // 
             // panel1
             // 
@@ -100,19 +101,20 @@
             this.nav_staffs.UseVisualStyleBackColor = false;
             this.nav_staffs.Click += new System.EventHandler(this.nav_staffs_Click);
             // 
-            // nav_customer
+            // nav_new_contract
             // 
-            this.nav_customer.BackColor = System.Drawing.Color.SteelBlue;
-            this.nav_customer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.nav_customer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.nav_customer.ForeColor = System.Drawing.SystemColors.Window;
-            this.nav_customer.Location = new System.Drawing.Point(57, 372);
-            this.nav_customer.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.nav_customer.Name = "nav_customer";
-            this.nav_customer.Size = new System.Drawing.Size(328, 135);
-            this.nav_customer.TabIndex = 8;
-            this.nav_customer.Text = "Customers";
-            this.nav_customer.UseVisualStyleBackColor = false;
+            this.nav_new_contract.BackColor = System.Drawing.Color.SteelBlue;
+            this.nav_new_contract.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.nav_new_contract.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.nav_new_contract.ForeColor = System.Drawing.SystemColors.Window;
+            this.nav_new_contract.Location = new System.Drawing.Point(57, 372);
+            this.nav_new_contract.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.nav_new_contract.Name = "nav_new_contract";
+            this.nav_new_contract.Size = new System.Drawing.Size(328, 135);
+            this.nav_new_contract.TabIndex = 8;
+            this.nav_new_contract.Text = "New contract";
+            this.nav_new_contract.UseVisualStyleBackColor = false;
+            this.nav_new_contract.Click += new System.EventHandler(this.nav_new_contract_Click);
             // 
             // nav_ManageContracts
             // 
@@ -165,7 +167,7 @@
             this.groupBox1.Controls.Add(this.nav_cars);
             this.groupBox1.Controls.Add(this.nav_staffs);
             this.groupBox1.Controls.Add(this.nav_ManageContracts);
-            this.groupBox1.Controls.Add(this.nav_customer);
+            this.groupBox1.Controls.Add(this.nav_new_contract);
             this.groupBox1.Location = new System.Drawing.Point(45, 185);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(444, 884);
@@ -244,7 +246,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button nav_cars;
         private System.Windows.Forms.Button nav_staffs;
-        private System.Windows.Forms.Button nav_customer;
+        private System.Windows.Forms.Button nav_new_contract;
         private System.Windows.Forms.Button nav_ManageContracts;
         private System.Windows.Forms.Button btn_log_out;
         private System.Windows.Forms.Button nav_setting;
