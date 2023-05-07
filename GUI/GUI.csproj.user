@@ -28,5 +28,8 @@
     <Compile Update="Setting.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="SettingConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

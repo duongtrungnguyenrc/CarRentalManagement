@@ -49,6 +49,7 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             this.FormClosed += ManageContracts_FormClosed;
+            this.Shown += ManageContracts_Shown;
             // 
             // panel1
             // 

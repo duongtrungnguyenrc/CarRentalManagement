@@ -35,7 +35,6 @@ namespace GUI
             // Tạo một ImageList mới
             this.imageList = new ImageList();
             imageList.ImageSize = new Size(300, 300); // Đặt kích thước của hình ảnh
-
             List<Car> cars = CarsModel.GetCars();
 
             System.Drawing.Image image = null;
@@ -52,6 +51,7 @@ namespace GUI
                 cars_list.LargeImageList = imageList;
                 cars_list.Items.Add(new ListViewItem(car.name, car.id) { Tag = car });
             }
+
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,6 +76,7 @@ namespace GUI
             }
             else
             {
+                MessageBox.Show(res.getDescription());
                 return;
             }
             Car car = null;
@@ -92,11 +93,13 @@ namespace GUI
             double rentalTime = PricesModel.GetRentTime((DateTime)txt_start_date.Value, (DateTime)txt_end_date.Value, (DateTime)txt_start_time.Value, (DateTime)txt_end_time.Value);
             double rentalPrice = rentalTime >= 12 ? car.rentByDate : car.renByTime;
 
-            Contract contract = new Contract("", this.userID ,customer, car, (DateTime)txt_start_date.Value, (DateTime)txt_end_date.Value, txt_start_time.Value.TimeOfDay, txt_end_time.Value.TimeOfDay, new DateTime(), PricesModel.CalcPrices(rentalPrice, rentalTime), "", ""); 
+            Contract contract = new Contract("", this.userID ,customer, car, (DateTime)txt_start_date.Value, (DateTime)txt_end_date.Value, txt_start_time.Value.TimeOfDay, 
+                txt_end_time.Value.TimeOfDay, new DateTime(), PricesModel.CalcPrices(rentalPrice, rentalTime), cb_payment_method.Text, "Operational"); 
             
             res = ContractsModel.CreateContract(contract);
             if(res.getStatus())
             {
+                this.Close();
                 ExportContract();
             }
             MessageBox.Show(res.getDescription());

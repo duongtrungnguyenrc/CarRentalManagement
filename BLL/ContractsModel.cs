@@ -24,28 +24,17 @@ namespace BLL
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        string id = reader.GetGuid(0).ToString();
-                        string userId = reader.GetGuid(1).ToString();
-                        Customer customer = new Customer(reader.GetGuid(2).ToString());
-                        Car car = new Car(reader.GetGuid(3).ToString());
-                        DateTime startDate = reader.GetDateTime(4);
-                        DateTime endDate = reader.GetDateTime(5);
-                        TimeSpan startTime = reader.GetTimeSpan(6);
-                        TimeSpan endTime = reader.GetTimeSpan(7);
-                        DateTime createDate = reader.GetDateTime(8);
-                        double totalPrices = reader.GetDouble(9);
-                        string paymentMethod = reader.GetString(10);
-                        string status = reader.GetString(11);
-                        DTO.Contract contract = new DTO.Contract(id, userId, customer, car, startDate, endDate, startTime, endTime, createDate, totalPrices, paymentMethod, status);
+                        DTO.Contract contract = new DTO.Contract(reader.GetGuid(0).ToString(), reader.GetGuid(1).ToString(), new Customer(reader.GetGuid(2).ToString()),
+                            new Car(reader.GetGuid(3).ToString()), reader.GetDateTime(4), reader.GetDateTime(5), reader.GetTimeSpan(6), reader.GetTimeSpan(7), reader.GetDateTime(8),
+                            reader.GetDouble(9), reader.GetString(10), reader.GetString(11));
                         contracts.Add(contract);
                     }
-                    return new Respond(true, contracts, "Success");
+                    return new Respond(true, contracts, "Successfully to get all contracts");
                 }
                 catch (Exception ex)
                 {
                     return new Respond(false, null, ex.ToString());
                 }
-
             }
         }
 
@@ -99,7 +88,7 @@ namespace BLL
                     if (rowsAffected > 0)
                     {
                         CarsModel.UpdateCarStatus(contract.car.id, "Renting");
-                        return new Respond(true, "", "Success!");
+                        return new Respond(true, "", "Successfully !");
                     }
                     return new Respond(false, "", "Failed!");
                 }
@@ -170,11 +159,41 @@ namespace BLL
             }
         }
 
-        public static string GenerateContract()
+        public static Respond GetContractByUser(string userId)
         {
+            List<DTO.Contract> contracts = new List<DTO.Contract>();
+            string query = "SELECT contract_id, user_id, customer_id, car_id, rental_start_date, rental_end_date, rental_start_time, rental_end_time, contract_date, " +
+                "total_prices, payment_method, status FROM PreContract WHERE user_id=@user_id";
 
+            using (SqlCommand command = new SqlCommand(query, Connection.GetConnection()))
+            {
+                command.Parameters.AddWithValue("@user_id", userId);
 
-            return "";
+                try
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+                    if(reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            DTO.Contract contract = new DTO.Contract(reader.GetGuid(0).ToString(), reader.GetGuid(1).ToString(), new Customer(reader.GetGuid(2).ToString()),
+                                new Car(reader.GetGuid(3).ToString()), reader.GetDateTime(4), reader.GetDateTime(5), reader.GetTimeSpan(6), reader.GetTimeSpan(7), reader.GetDateTime(8),
+                                reader.GetDouble(9), reader.GetString(10), reader.GetString(11));
+
+                            contracts.Add(contract);
+                        }
+                        return new Respond(true, contracts, "Successfully to get contract by user");
+                    }
+                    else
+                    {
+                        return new Respond(false, null, "Data is empty");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return new Respond(false, null, ex.ToString());
+                }
+            }
         }
     }
 }

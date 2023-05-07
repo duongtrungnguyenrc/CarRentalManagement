@@ -46,3 +46,4 @@ C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\obj\Debug\net6.0-windows\GU
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\itextsharp.dll
 C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\bin\Debug\net6.0-windows\Microsoft.Office.Interop.Word.dll
+C:\Users\Nguyen\OneDrive\Máy tính\CarRentalApp\GUI\obj\Debug\net6.0-windows\GUI.SettingConfirm.resources

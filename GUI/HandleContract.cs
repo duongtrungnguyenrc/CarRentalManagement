@@ -139,6 +139,11 @@ namespace GUI
                 {
                     DisableForm();
                     MessageBox.Show(res.getDescription(), "Success");
+                    if(this.Owner != null)
+                    {
+                        this.Owner.Show();
+                    }
+                    this.Close();
                 }
                 else
                 {

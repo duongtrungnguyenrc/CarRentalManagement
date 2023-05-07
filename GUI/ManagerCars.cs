@@ -307,13 +307,5 @@ namespace GUI
                 MessageBox.Show("Export completed!");
             }
         }
-
-        private void ManagerCars_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (this.Owner != null)
-            {
-                this.Owner.Show();
-            }
-        }
     }
 }

@@ -20,6 +20,8 @@ namespace GUI
             this.StartPosition = FormStartPosition.CenterScreen; // Hiển thị form ở giữa màn hình khi show lên
             if (!String.Equals(role, "admin", StringComparison.OrdinalIgnoreCase)) { 
                 nav_staffs.Enabled = false;
+                nav_cars.Enabled = false;
+                nav_ManageContracts.Enabled = false;
             }
             this.userID = id;
             this.role = role;
@@ -49,7 +51,7 @@ namespace GUI
 
         private void nav_setting_Click(object sender, EventArgs e)
         {
-            Setting form = new Setting(this.userID, this.role);
+            SettingConfirm form = new SettingConfirm(this.userID, this.role);
             this.Hide();
             form.ShowDialog(this);
         }
@@ -65,7 +67,7 @@ namespace GUI
             if(this.Owner!= null)
             {
                 this.Owner.Show();
-                this.Close();
+                this.Hide();
             }
         }
     }

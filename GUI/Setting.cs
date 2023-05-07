@@ -27,6 +27,7 @@ namespace GUI
             LoadUserInfo();
             LoadAccount();
             LoadSalary();
+            LoadSalesInfo();
             this.isAdminRole = String.Equals(role, "admin", StringComparison.OrdinalIgnoreCase);
         }
 
@@ -80,6 +81,20 @@ namespace GUI
             else
             {
                 MessageBox.Show(res.getDescription());
+            }
+        }
+
+        private void LoadSalesInfo()
+        {
+            Respond res = ContractsModel.GetContractByUser(userID);
+            if (res.getStatus())
+            {
+                List<Contract> contracts= (List<Contract>)res.getData();
+
+                foreach(Contract contract in contracts)
+                {
+                    data_sales.Rows.Add(contract.customer.id, contract.car.id, contract.totalPrices, contract.status);
+                }
             }
         }
 

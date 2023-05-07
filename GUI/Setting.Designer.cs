@@ -66,13 +66,13 @@
             this.txt_account_id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.data_sales = new System.Windows.Forms.DataGridView();
-            this.contractId = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.customer = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.car = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.revenue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gb_salary = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txt_salary = new System.Windows.Forms.TextBox();
+            this.customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.car = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.revenue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.gb_user_info.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -80,7 +80,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.data_sales)).BeginInit();
             this.gb_salary.SuspendLayout();
             this.SuspendLayout();
-            this.FormClosed += Setting_FormClosed;
             // 
             // groupBox2
             // 
@@ -592,44 +591,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.data_sales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.data_sales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.contractId,
             this.customer,
             this.car,
-            this.revenue});
+            this.revenue,
+            this.status});
             this.data_sales.Location = new System.Drawing.Point(1203, 674);
             this.data_sales.Name = "data_sales";
             this.data_sales.RowHeadersWidth = 82;
             this.data_sales.RowTemplate.Height = 41;
             this.data_sales.Size = new System.Drawing.Size(885, 380);
             this.data_sales.TabIndex = 81;
-            // 
-            // contractId
-            // 
-            this.contractId.HeaderText = "Contract id";
-            this.contractId.MinimumWidth = 10;
-            this.contractId.Name = "contractId";
-            this.contractId.Width = 200;
-            // 
-            // customer
-            // 
-            this.customer.HeaderText = "Customer";
-            this.customer.MinimumWidth = 10;
-            this.customer.Name = "customer";
-            this.customer.Width = 200;
-            // 
-            // car
-            // 
-            this.car.HeaderText = "Car";
-            this.car.MinimumWidth = 10;
-            this.car.Name = "car";
-            this.car.Width = 200;
-            // 
-            // revenue
-            // 
-            this.revenue.HeaderText = "Revenue";
-            this.revenue.MinimumWidth = 10;
-            this.revenue.Name = "revenue";
-            this.revenue.Width = 200;
             // 
             // gb_salary
             // 
@@ -668,6 +639,34 @@
             this.txt_salary.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txt_salary.Size = new System.Drawing.Size(518, 44);
             this.txt_salary.TabIndex = 59;
+            // 
+            // customer
+            // 
+            this.customer.HeaderText = "Customer";
+            this.customer.MinimumWidth = 10;
+            this.customer.Name = "customer";
+            this.customer.Width = 200;
+            // 
+            // car
+            // 
+            this.car.HeaderText = "Car";
+            this.car.MinimumWidth = 10;
+            this.car.Name = "car";
+            this.car.Width = 200;
+            // 
+            // revenue
+            // 
+            this.revenue.HeaderText = "Revenue";
+            this.revenue.MinimumWidth = 10;
+            this.revenue.Name = "revenue";
+            this.revenue.Width = 200;
+            // 
+            // status
+            // 
+            this.status.HeaderText = "Status";
+            this.status.MinimumWidth = 10;
+            this.status.Name = "status";
+            this.status.Width = 200;
             // 
             // Setting
             // 
@@ -739,12 +738,12 @@
         private GroupBox gb_salary;
         private Label label14;
         private TextBox txt_salary;
-        private DataGridViewLinkColumn contractId;
-        private DataGridViewLinkColumn customer;
-        private DataGridViewTextBoxColumn car;
-        private DataGridViewTextBoxColumn revenue;
         private TextBox txt_id;
         private Label label15;
         private CheckBox show_password;
+        private DataGridViewTextBoxColumn customer;
+        private DataGridViewTextBoxColumn car;
+        private DataGridViewTextBoxColumn revenue;
+        private DataGridViewTextBoxColumn status;
     }
 }

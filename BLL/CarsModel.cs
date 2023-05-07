@@ -37,7 +37,8 @@ namespace BLL
 
         public static Respond GetCarById(string carId)
         {
-            string query = "SELECT car_id, car_name, car_img, car_price, car_year, number_of_km, rent_by_time, rent_by_date, deposit_price, engine_type, number_of_seats, status FROM Car " +
+            string query = "SELECT car_id, car_name, car_img, car_price, car_year, number_of_km, rent_by_time, rent_by_date, deposit_price, " +
+                "engine_type, number_of_seats, status FROM Car " +
                 "WHERE car_id=@car_id";
 
             using (SqlCommand command = new SqlCommand(query, Connection.GetConnection()))
@@ -165,6 +166,39 @@ namespace BLL
                     return new Respond(false, "", "Failed!");
                 }
             }
+        }
+
+        public static Respond SearchCar(string carType, string engineType)
+        {
+            string query = "SLECT car_id, car_name, car_img, car_price, car_year, number_of_km, rent_by_time, rent_by_date, deposit_price, engine_type, number_of_seats, status WHERE ";
+            List<bool> exists = new List<bool> { false, false };
+            if (!String.IsNullOrEmpty(carType))
+            {
+                query += "number_of_seats=@number_of_seats ";
+                exists[0] = true;
+            }
+            if (!String.IsNullOrEmpty(engineType))
+            {
+                query += "engine_type=@engine_type";
+                exists[1] = true;
+            }
+            List<Car> cars = new List<Car>(); 
+            using (SqlDataAdapter adapter = new SqlDataAdapter(query, Connection.GetConnection()))
+            {
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                foreach (DataRow row in table.Rows)
+                {
+                    cars.Add(new Car(row["car_id"].ToString(), row["car_name"].ToString(), (byte[])row["car_img"], (double)row["car_price"],
+                    Convert.ToDateTime(row["car_year"]), (double)row["number_of_km"], (double)row["rent_by_time"], (double)row["rent_by_date"],
+                    (double)row["deposit_price"], row["engine_type"].ToString(), (int)row["number_of_seats"], row["status"].ToString()));
+
+                }
+            }
+            return new Respond(true, cars, "Successfully to get Cars");
+
+
         }
     }
 }

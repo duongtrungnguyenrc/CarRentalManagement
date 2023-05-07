@@ -46,6 +46,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.gb_rental_time = new System.Windows.Forms.GroupBox();
+            this.cb_payment_method = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.btn_create_contract = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.txt_end_time = new System.Windows.Forms.DateTimePicker();
@@ -71,7 +73,6 @@
             this.groupBox3.SuspendLayout();
             this.gb_car.SuspendLayout();
             this.SuspendLayout();
-            this.FormClosed += CreateContract_FormClosed;
             // 
             // cars_list
             // 
@@ -139,6 +140,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_birth.CalendarFont = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_birth.Checked = false;
             this.txt_birth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txt_birth.Location = new System.Drawing.Point(181, 135);
             this.txt_birth.Name = "txt_birth";
@@ -309,6 +311,8 @@
             // 
             // gb_rental_time
             // 
+            this.gb_rental_time.Controls.Add(this.cb_payment_method);
+            this.gb_rental_time.Controls.Add(this.label15);
             this.gb_rental_time.Controls.Add(this.btn_create_contract);
             this.gb_rental_time.Controls.Add(this.label11);
             this.gb_rental_time.Controls.Add(this.txt_end_time);
@@ -324,6 +328,37 @@
             this.gb_rental_time.TabIndex = 74;
             this.gb_rental_time.TabStop = false;
             this.gb_rental_time.Text = "Rental infomations";
+            // 
+            // cb_payment_method
+            // 
+            this.cb_payment_method.AllowDrop = true;
+            this.cb_payment_method.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_payment_method.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_payment_method.FormattingEnabled = true;
+            this.cb_payment_method.Items.AddRange(new object[] {
+            "Banking",
+            "Cast payment"});
+            this.cb_payment_method.Location = new System.Drawing.Point(258, 298);
+            this.cb_payment_method.Name = "cb_payment_method";
+            this.cb_payment_method.Size = new System.Drawing.Size(166, 40);
+            this.cb_payment_method.TabIndex = 99;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label15.Location = new System.Drawing.Point(13, 301);
+            this.label15.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(226, 31);
+            this.label15.TabIndex = 100;
+            this.label15.Text = "Payment method:";
             // 
             // btn_create_contract
             // 
@@ -349,7 +384,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(13, 271);
+            this.label11.Location = new System.Drawing.Point(13, 242);
             this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(128, 31);
@@ -362,7 +397,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_end_time.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.txt_end_time.Location = new System.Drawing.Point(163, 268);
+            this.txt_end_time.Location = new System.Drawing.Point(163, 239);
             this.txt_end_time.Name = "txt_end_time";
             this.txt_end_time.Size = new System.Drawing.Size(261, 39);
             this.txt_end_time.TabIndex = 11;
@@ -375,7 +410,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(13, 206);
+            this.label12.Location = new System.Drawing.Point(13, 184);
             this.label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(130, 31);
@@ -388,7 +423,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_end_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txt_end_date.Location = new System.Drawing.Point(163, 203);
+            this.txt_end_date.Location = new System.Drawing.Point(163, 181);
             this.txt_end_date.Name = "txt_end_date";
             this.txt_end_date.Size = new System.Drawing.Size(261, 39);
             this.txt_end_date.TabIndex = 10;
@@ -401,7 +436,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(13, 140);
+            this.label10.Location = new System.Drawing.Point(13, 127);
             this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(138, 31);
@@ -414,7 +449,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_start_time.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.txt_start_time.Location = new System.Drawing.Point(163, 137);
+            this.txt_start_time.Location = new System.Drawing.Point(163, 124);
             this.txt_start_time.Name = "txt_start_time";
             this.txt_start_time.Size = new System.Drawing.Size(261, 39);
             this.txt_start_time.TabIndex = 9;
@@ -647,5 +682,7 @@
         private Label label9;
         private Label label13;
         private DateTimePicker txt_birth;
+        private ComboBox cb_payment_method;
+        private Label label15;
     }
 }

@@ -43,5 +43,35 @@ namespace BLL
             }
             return new Respond(false, null, "Login fail!");
         }
+
+        public static Respond AuthenticationById(string userId, string password)
+        {
+            string query = "SELECT password FROM SystemAccount WHERE user_id=@user_id";
+
+            using (SqlCommand command = new SqlCommand(query, Connection.GetConnection()))
+            {
+                command.Parameters.AddWithValue("@user_id", userId);
+
+                try
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Read();
+                    string realPassword = reader.GetString(0);
+                    if (realPassword == password)
+                    {
+                        return new Respond(true, "", "Correct password!");
+                    }
+                    else
+                    {
+                        return new Respond(false, null, "Password is incorrect!");
+                    }
+                    reader.Close();
+                }
+                catch
+                {
+                    return new Respond(false, null, "Failed to authentication!");
+                }
+            }
+        }
     }
 }

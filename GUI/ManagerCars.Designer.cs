@@ -78,6 +78,7 @@ namespace GUI
             this.gb_data_form.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_cars)).BeginInit();
             this.SuspendLayout();
+            this.FormClosed += ManagerCars_FormClosed;
             // 
             // panel1
             // 
@@ -590,6 +591,13 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.data_cars)).EndInit();
             this.ResumeLayout(false);
 
+        }
+        private void ManagerCars_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.Owner != null)
+            {
+                this.Owner.Show();
+            }
         }
 
         #endregion

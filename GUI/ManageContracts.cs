@@ -106,7 +106,13 @@ namespace GUI
             Contract selectedRow = (Contract)data_contracts.Rows[e.RowIndex].Tag;
 
             ViewContract form = new ViewContract(this.userID, selectedRow);
-            form.ShowDialog();
+            form.ShowDialog(this);
+        }
+
+        private void ManageContracts_Shown(object sender, EventArgs e)
+        {
+            data_contracts.Rows.Clear();
+            loadContract();
         }
     }
 }
